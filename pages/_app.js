@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
         <meta content="My personal website." property="og:description" />
         <meta content="/images/logo.jpg" property="og:image" />
         <meta name="msapplication-TileColor" content="#90D4FC" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <NavContext.Provider value={{ open, setOpen }}>
         <Component {...pageProps} />
