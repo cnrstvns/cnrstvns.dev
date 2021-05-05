@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -6,11 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: '#0F1118'
-      }
+        black: '#0F1118',
+      },
     },
     screens: {
-      'xs': '380px',
+      xs: '375px',
       ...defaultTheme.screens,
     },
   },
@@ -18,4 +18,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

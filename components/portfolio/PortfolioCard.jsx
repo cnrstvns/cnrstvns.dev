@@ -11,7 +11,7 @@ const PortfolioCard = function PortfolioCard({
     <div className="flex flex-col py-2 mb-10">
       <div className="text-xl text-black font-medium pb-2 dark:text-white">{ name }</div>
       <div className="overflow-hidden">
-        <img className="max-h-80 mx-0 rounded-md" src={image} alt="" />
+        <img className="max-h-80 min-h-0 mx-0 rounded-md" src={image} alt="" />
       </div>
       <div className="text-base dark:text-gray-300 font-regular pt-2">{date}</div>
       <div className="mt-auto">
