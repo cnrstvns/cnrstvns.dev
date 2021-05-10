@@ -1,13 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => (
   <div className="dark:bg-black">
     <div className="border-t border-gray-700 text-2xl py-10">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-4">
-          <div className="col-span-2">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          <div className="col-span-2 mb-6 md:mb-0">
             <div className="dark:text-white font-medium mb-2">
               Connor Stevens
             </div>
