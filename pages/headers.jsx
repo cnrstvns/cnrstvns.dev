@@ -14,8 +14,7 @@ export default function Home() {
       headers.split('\n').forEach((header) => {
         const [key, val] = header.split(':');
         const newKey = unescape(key.trim());
-        const newVal = unescape(val.trim());
-        formattedHeaders[newKey] = newVal;
+        formattedHeaders[newKey] = unescape(val.trim());
       });
       setHeaders(JSON.stringify(formattedHeaders, null, 2));
     // eslint-disable-next-line no-empty
