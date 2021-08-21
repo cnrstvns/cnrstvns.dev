@@ -19,7 +19,7 @@ export default function Home() {
       setHeaders(JSON.stringify(formattedHeaders, null, 2));
     // eslint-disable-next-line no-empty
     } catch (err) {}
-  };
+  }
 
   return (
     <>
