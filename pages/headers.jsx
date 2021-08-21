@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 export default function Home() {
   const [headers, setHeaders] = React.useState('');
 
-  const format = () => {
+  function format() {
     try {
       const formattedHeaders = {};
       headers.split('\n').forEach((header) => {
