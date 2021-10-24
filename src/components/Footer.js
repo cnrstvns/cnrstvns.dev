@@ -5,11 +5,11 @@ import { faGithub, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-
 
 export default function Footer() {
   return (
-    <div className="dark:bg-black">
+    <div className="bg-black">
       <div className="border-t border-gray-700 text-2xl py-10">
         <div className="max-w-5xl mx-auto px-6">
           <div className="col-span-2 mb-6 md:mb-0 space-y-2">
-            <div className="dark:text-white font-medium">
+            <div className="text-white font-medium">
               Connor Stevens
             </div>
             <div className="space-x-3">
@@ -26,7 +26,7 @@ export default function Footer() {
                 <FontAwesomeIcon size="lg" icon={faEnvelope} />
               </a>
             </div>
-            <div className="text-base dark:text-gray-500">
+            <div className="text-base text-gray-500">
               © 2021 Connor Stevens. All rights reserved.
             </div>
           </div>

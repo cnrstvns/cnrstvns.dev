@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import 'tailwindcss/tailwind.css';
 import '../styles/index.css';
 
 export default function App({ Component, pageProps }) {
