@@ -20,22 +20,17 @@ export default function Headers() {
 
   return (
     <>
-      <Head title="Connor Stevens" />
-      <main className="flex flex-col pt-32 items-center min-h-screen px-6 lg:px-32 bg-white text-black dark:bg-black dark:text-white">
-        <div className="max-w-5xl mx-auto">
+      <Head title="Headers — Connor Stevens" />
+      <main className="pt-32 min-h-screen px-6 lg:px-32 text-black bg-black text-white">
+        <div className="w-full w-1/2">
           <div className="font-semibold text-4xl pb-8">Headers</div>
           <textarea
             value={headers}
-            onChange={({ target }) => setHeaders(target.value)}
-            style={{
-              resize: 'none', width: '100vh', height: '400px', padding: '0.5em',
-            }}
-            className="border-2 border-color-white bg-transparent rounded focus:outline-none"
+            onChange={(e) => setHeaders(e.target.value)}
+            className="border-2 resize-none border-white bg-transparent rounded focus:outline-none h-80 w-full p-2"
           />
         </div>
-        <div className="mx-0">
-          <button className="bg-transparent border-2 hover:bg-white text-black font-semibold hover:text-white py-2 px-4 rounded transition focus:outline-none dark:text-white dark:hover:text-black" type="button" onClick={() => format()}>Format</button>
-        </div>
+        <button className="mt-2 p-1.5 px-4 text-white border-2 border-white rounded hover:bg-white hover:text-black transition" type="button" onClick={() => format()}>Format</button>
       </main>
       <Footer />
     </>
