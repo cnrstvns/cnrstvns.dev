@@ -17,7 +17,7 @@ export const getRefreshToken = async function getRefreshToken(refreshToken) {
 
 export const getTopTracks = async function getTopTracks(accessToken) {
   const query = qs.stringify({
-    time_range: 'medium_term',
+    time_range: 'short_term',
     limit: 12,
   });
 
