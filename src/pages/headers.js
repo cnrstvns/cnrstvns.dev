@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from '../components/Head';
-import Footer from '../components/Footer';
 
 export default function Headers() {
   const [headers, setHeaders] = React.useState('');
@@ -14,8 +13,8 @@ export default function Headers() {
         formattedHeaders[newKey] = unescape(val.trim());
       });
       setHeaders(JSON.stringify(formattedHeaders, null, 2));
-    // eslint-disable-next-line no-empty
-    } catch (err) {}
+      // eslint-disable-next-line no-empty
+    } catch (err) { }
   }
 
   return (
@@ -32,7 +31,6 @@ export default function Headers() {
         </div>
         <button className="mt-2 p-1.5 px-4 text-white border-2 border-white rounded hover:bg-white hover:text-black transition" type="button" onClick={() => format()}>Format</button>
       </main>
-      <Footer />
     </>
   );
 }
