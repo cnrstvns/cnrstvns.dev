@@ -1,9 +1,14 @@
 module.exports = {
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         black: '#0F1118',
+      },
+      fontFamily: {
+        sans: [
+          'Inter',
+          'sans-serif',
+        ],
       },
     },
   },
@@ -11,4 +16,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  content: ['src/**/*.js'],
 };
