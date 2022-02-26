@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
         <meta content="Connor Stevens - My personal website." property="og:title" />
         <meta content="Connor Stevens" property="og:site_name" />
         <meta content="My personal website." property="og:description" />
-        <meta content="/images/logo.jpg" property="og:image" />
+        <meta content="/images/me.png" property="og:image" />
         <meta name="msapplication-TileColor" content="#90D4FC" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
