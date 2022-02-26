@@ -26,6 +26,6 @@ export default function App({ Component, pageProps }) {
 }
 
 App.propTypes = {
-  Component: PropTypes.node,
+  Component: PropTypes.any,
   pageProps: PropTypes.object,
 };
