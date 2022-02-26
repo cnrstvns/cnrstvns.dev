@@ -22,5 +22,5 @@ Link.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   color: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg'])
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
 };

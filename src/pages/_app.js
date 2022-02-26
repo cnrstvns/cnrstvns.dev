@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import '../styles/index.css';
+import PropTypes from 'prop-types';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -23,3 +24,8 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+App.propTypes = {
+  Component: PropTypes.node,
+  pageProps: PropTypes.object,
+};
