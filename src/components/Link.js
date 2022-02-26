@@ -6,6 +6,8 @@ export default function Link({ href, children, color, size }) {
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noreferrer"
       className={classNames('text-gray-400 hover:text-gray-500 transition', {
         '!text-blue-400 hover:!text-blue-500': color,
         'text-sm': size === 'sm',

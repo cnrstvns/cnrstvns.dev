@@ -19,16 +19,16 @@ export default function Index() {
             After 2 years, I put school on pause and moved to Palo Alto to be Hyper's first employee.
           </div>
           <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
-            <Link size="sm" href="https://github.com/connorstevens">
+            <Link size="sm" href="https://github.com/connorstevens" external>
               git
             </Link>
-            <Link size="sm" href="https://linkedin.com/in/connorstevens26">
-              linkd.in
+            <Link size="sm" href="https://linkedin.com/in/connorstevens26" external>
+              lnkd.in
             </Link>
-            <Link size="sm" href="https://twitter.com/cnrstvns">
+            <Link size="sm" href="https://twitter.com/cnrstvns" external>
               twttr
             </Link>
-            <Link size="sm" href="mailto:connor@hyper.co">
+            <Link size="sm" href="mailto:connor@hyper.co" external>
               mail
             </Link>
           </div>
