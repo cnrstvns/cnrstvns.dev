@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import '../styles/index.css';
 import PropTypes from 'prop-types';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '../styles/index.css';
 
 export default function App({ Component, pageProps }) {
   return (
