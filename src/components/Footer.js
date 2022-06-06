@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
               <div className="text-base text-gray-400 mb-2">
                 <FontAwesomeIcon size="lg" style={{ marginRight: '13px' }} icon={faDiscord} />
-                connorstevens#0001
+                cnrstvns#0001
               </div>
               <div className="text-base text-gray-400 mb-2">
                 <a href="mailto:connor@hyper.co">
