@@ -23,7 +23,7 @@ export default function Headers() {
   return (
     <>
       <Head title="Headers — Connor Stevens" />
-      <main className="flex flex-col items-center min-h-screen px-6 lg:px-32 bg-white text-black dark:bg-black dark:text-white">
+      <main className="flex flex-col items-center min-h-screen px-6 lg:px-32 bg-white text-black bg-black text-white">
         <div className="m-auto">
           <div className="w-full w-1/2 space-y-3">
             <div className="font-semibold text-gray-300 text-4xl">Headers</div>

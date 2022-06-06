@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Head title="Connor Stevens" />
       <Navbar />
-      <main className="flex flex-col pt-20 items-center min-h-screen px-6 lg:px-32 bg-white text-black dark:bg-black dark:text-white">
+      <main className="flex flex-col pt-20 items-center min-h-screen px-6 lg:px-32 bg-white text-black bg-black text-white">
         <div className="m-auto">
           <video
             muted

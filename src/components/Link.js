@@ -10,7 +10,7 @@ export default function Link({
       href={href}
       target={external ? '_blank' : '_self'}
       rel="noreferrer"
-      className={classNames('text-base text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 transition', {
+      className={classNames('text-base text-gray-500 hover:text-gray-400 transition', {
         '!text-blue-400 hover:!text-blue-500': color,
         'text-sm': size === 'sm',
         'text-md': size === 'md',
