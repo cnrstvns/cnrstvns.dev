@@ -13,12 +13,10 @@ export default function About() {
         <div className="flex flex-col">
           <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white">Connor Stevens</div>
           <div className="text-gray-400 mt-1">
-            Founding Engineer at <Link href="https://hyper.co" color external>Hyper</Link>
+            Software Engineer
           </div>
           <div className="text-gray-100 max-w-xl mt-4">
-            Before Hyper, I was studying Computing and Information Technologies at <Link href="https://rit.edu" color external>RIT</Link>.
-            I was writing code for 8 hours a day, studying, and managing 2 businesses.
-            After 2 years, I put school on pause and moved to Palo Alto to be Hyper's first employee.
+            Not much else going on.
           </div>
           <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
             <Link size="sm" href="https://github.com/connorstevens" external>
