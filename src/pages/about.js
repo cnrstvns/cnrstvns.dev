@@ -16,7 +16,7 @@ export default function About() {
             Software Engineer
           </div>
           <div className="text-gray-100 max-w-xl mt-4">
-            Not much else going on.
+            Not much going on at the moment.
           </div>
           <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
             <Link size="sm" href="https://github.com/connorstevens" external>

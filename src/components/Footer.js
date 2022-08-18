@@ -19,9 +19,9 @@ export default function Footer() {
                 cnrstvns#0001
               </div>
               <div className="text-base text-gray-400 mb-2">
-                <a href="mailto:connor@hyper.co">
+                <a href="mailto:conmail1224@gmail.com">
                   <FontAwesomeIcon size="lg" style={{ marginRight: '13px' }} icon={faEnvelope} />
-                  connor@hyper.co
+                  conmail1224@gmail.com
                 </a>
               </div>
               <div className="text-base text-gray-500">
