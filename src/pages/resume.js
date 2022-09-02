@@ -81,7 +81,7 @@ export default function About() {
             <div className="text-base mt-2">
               <span className="font-semibold">GPA:</span>
               {' '}
-              3.29
+              3.32
             </div>
             <div className="text-base">
               <span className="font-semibold">Honors:</span>
