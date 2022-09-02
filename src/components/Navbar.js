@@ -30,6 +30,7 @@ export default function Navbar() {
       <div className={classNames('w-full block flex-grow lg:flex lg:items-center lg:w-auto', { hidden: !open })}>
         <div className="text-sm flex flex-col lg:flex-row lg:flex-grow text-white mt-4 lg:mt-0 space-y-1 lg:space-y-0 space-x-0 lg:space-x-3">
           <Link href="/" active={router.pathname === '/'}>Home</Link>
+          <Link href="/resume" active={router.pathname === '/resume'}>Resume</Link>
           <Link href="/about" active={router.pathname === '/about'}>About</Link>
         </div>
       </div>
