@@ -19,7 +19,7 @@ export default function About() {
             Third year Computing and Information Technologies student at RIT with a passion for building software.
           </div>
           <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
-            <Link size="sm" href="https://github.com/connorstevens" external>
+            <Link size="sm" href="https://github.com/cnrstvns" external>
               git
             </Link>
             <Link size="sm" href="https://linkedin.com/in/cnrstvns" external>
