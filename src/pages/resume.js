@@ -46,7 +46,7 @@ export default function About() {
               <div>
                 <div className="font-semibold text-xl text-blue-300">Lead Engineer</div>
                 <div className="text-base">Hyper - Palo Alto, CA</div>
-                <div className="text-base text-gray-300">Mar. 2021 - Jul. 2022</div>
+                <div className="text-base text-gray-300">May 2021 - Jul. 2022</div>
                 <div className="text-base mt-2">
                   <a className="hover:text-blue-300 hover:underline" href="https://hyper.co">Hyper</a>{' '}
                   is a platform that helps turn Discord servers into multi-million dollar businesses. As Hyper's first employee,
