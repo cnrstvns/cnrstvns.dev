@@ -9,7 +9,7 @@ export default function About() {
       <Head title="About — Connor Stevens" />
       <Navbar />
       <div className="flex flex-col p-10 lg:flex-row min-h-screen bg-black items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
-        <img className="max-h-[14rem] rounded-lg" src="/images/me.png" alt="me" />
+        <img className="max-h-[14rem] rounded-lg" src="/images/me.webp" alt="me" />
         <div className="flex flex-col">
           <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white">Connor Stevens</div>
           <div className="text-gray-400 mt-1">
