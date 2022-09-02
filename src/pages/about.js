@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 export default function About() {
   return (
     <>
-      <Head title="Connor Stevens" />
+      <Head title="About — Connor Stevens" />
       <Navbar />
       <div className="flex flex-col p-10 lg:flex-row min-h-screen bg-black items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
         <img className="max-h-[14rem] rounded-lg" src="/images/me.png" alt="me" />
