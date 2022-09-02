@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 export default function About() {
   return (
     <>
-      <Head title="Resume | Connor Stevens" />
+      <Head title="Resume — Connor Stevens" />
       <Navbar />
       <main className="flex flex-col pt-32 pb-10 min-h-screen px-6 lg:px-32 bg-black text-white">
         <div className="max-w-4xl mx-auto space-y-5">
