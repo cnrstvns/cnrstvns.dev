@@ -75,29 +75,38 @@ export default function About() {
           </div>
           <div>
             <div className="text-2xl font-bold mb-2 underline underline-offset-8 decoration-blue-300">Education</div>
-            <div className="font-semibold text-xl text-blue-300">B.S. Computing and Information Technologies</div>
-            <div className="text-base">Rochester Institute of Technology</div>
-            <div className="text-base text-gray-300">Aug. 2019 - Dec. 2024 (expected)</div>
-            <div className="text-base mt-2">
-              <span className="font-semibold">GPA:</span>
-              {' '}
-              3.32
-            </div>
-            <div className="text-base">
-              <span className="font-semibold">Honors:</span>
-              {' '}
-              Dean&apos;s List
-            </div>
-            <div className="text-base">
-              <span className="font-semibold">Relevant Coursework:</span>
-              {' '}
-              Computational Problem Solving in the Information Domain I/II,
-              Introduction to Routing and Switching,
-              Introduction to Database and Data Modeling,
-              Task Automation Using Interpretive Languages,
-              Information Assurance and Security,
-              Systems Administration I,
-              Web and Mobile I/II
+            <div className="space-y-3">
+              <div>
+                <div className="font-semibold text-xl text-blue-300">B.S. Computing and Information Technologies</div>
+                <div className="text-base">Rochester Institute of Technology</div>
+                <div className="text-base text-gray-300">Aug. 2019 - Dec. 2024 (expected)</div>
+                <div className="text-base mt-2">
+                  <span className="font-semibold">GPA:</span>
+                  {' '}
+                  3.32
+                </div>
+                <div className="text-base">
+                  <span className="font-semibold">Honors:</span>
+                  {' '}
+                  Dean&apos;s List
+                </div>
+                <div className="text-base">
+                  <span className="font-semibold">Relevant Coursework:</span>
+                  {' '}
+                  Computational Problem Solving in the Information Domain I/II,
+                  Introduction to Routing and Switching,
+                  Introduction to Database and Data Modeling,
+                  Task Automation Using Interpretive Languages,
+                  Information Assurance and Security,
+                  Systems Administration I,
+                  Web and Mobile I/II
+                </div>
+              </div>
+              <div>
+                <div className="font-semibold text-xl text-blue-300">High School Diploma</div>
+                <div className="text-base">Ridgewood High School</div>
+                <div className="text-base text-gray-300">Sep. 2015 - Jun. 2019</div>
+              </div>
             </div>
           </div>
           <div>
