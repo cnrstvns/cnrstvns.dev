@@ -22,7 +22,7 @@ export default function About() {
             <Link size="sm" href="https://github.com/connorstevens" external>
               git
             </Link>
-            <Link size="sm" href="https://linkedin.com/in/connorstevens26" external>
+            <Link size="sm" href="https://linkedin.com/in/cnrstvns" external>
               lnkd.in
             </Link>
             <Link size="sm" href="https://twitter.com/cnrstvns" external>
