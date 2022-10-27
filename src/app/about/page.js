@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Head from '../../components/Head';
 import Link from '../../components/Link';
 
@@ -7,7 +8,9 @@ export default function About() {
     <>
       <Head title="About — Connor Stevens" />
       <div className="flex flex-col p-10 lg:flex-row min-h-screen bg-black items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
-        <img
+        <Image
+          width={224}
+          height={224}
           className="max-h-[14rem] rounded-lg"
           src="/images/me.webp"
           alt="me"

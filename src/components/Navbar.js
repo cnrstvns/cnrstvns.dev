@@ -3,6 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import Link from './Link';
 
 export default function Navbar() {
@@ -12,10 +13,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-gray-700 p-6 bg-opacity-20 backdrop-filter backdrop-blur-sm">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img
+        <Image
+          height={40}
+          width={40}
           className="rounded-full max-h-10"
-          src="/images/me.webp"
-          alt="Me (Connor)"
+          src="/images/logo.webp"
+          alt="My logo"
         />
         <Link href="/">
           <span className="ml-3 text-white font-medium text-xl tracking-tight cursor-pointer">
