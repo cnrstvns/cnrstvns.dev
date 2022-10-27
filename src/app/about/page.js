@@ -7,6 +7,7 @@ export default function About() {
   return (
     <>
       <Head title="About — Connor Stevens" />
+
       <div className="flex flex-col p-10 lg:flex-row min-h-screen bg-black items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
         <Image
           width={224}

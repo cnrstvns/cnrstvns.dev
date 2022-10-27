@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <Head title="Connor Stevens" />
+
       <main className="flex flex-col pt-20 items-center min-h-screen px-6 lg:px-32 bg-black text-white">
         <div className="m-auto">
           <video
