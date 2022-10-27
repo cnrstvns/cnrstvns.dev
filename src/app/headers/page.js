@@ -1,17 +1,19 @@
-import React from 'react';
-import Head from '../components/Head';
+"use client";
+
+import React from "react";
+import Head from "../../components/Head";
 
 export default function Headers() {
-  const [headers, setHeaders] = React.useState('');
+  const [headers, setHeaders] = React.useState("");
 
   function format() {
     try {
       const formattedHeaders = {};
       headers
         .trim()
-        .split('\n')
+        .split("\n")
         .forEach((header) => {
-          const [key, val] = header.split(':');
+          const [key, val] = header.split(":");
           const newKey = unescape(key.trim());
           formattedHeaders[newKey] = unescape(val.trim());
         });
@@ -28,7 +30,8 @@ export default function Headers() {
           <div className="w-full w-1/2 space-y-3">
             <div className="font-semibold text-gray-300 text-4xl">Headers</div>
             <div className="text-base text-gray-400">
-              I wrote this to help myself turn chrome request headers into a JSON object. Hopefully it can help someone else, too.
+              I wrote this to help myself turn chrome request headers into a
+              JSON object. Hopefully it can help someone else, too.
             </div>
             <textarea
               value={headers}
@@ -36,7 +39,13 @@ export default function Headers() {
               className="text-gray-300 border resize-none border-gray-500 bg-transparent rounded focus:outline-none h-80 w-full p-2"
             />
           </div>
-          <button className="mt-2 p-1.5 px-4 text-gray-400 border border-gray-500 rounded hover:bg-gray-400 hover:text-black transition" type="button" onClick={() => format()}>Format</button>
+          <button
+            className="mt-2 p-1.5 px-4 text-gray-400 border border-gray-500 rounded hover:bg-gray-400 hover:text-black transition"
+            type="button"
+            onClick={() => format()}
+          >
+            Format
+          </button>
         </div>
       </main>
     </>

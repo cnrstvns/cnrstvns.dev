@@ -1,13 +1,10 @@
-import React from 'react';
-import Head from '../components/Head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from "react";
+import Head from "../components/Head";
 
 export default function Home() {
   return (
     <>
       <Head title="Connor Stevens" />
-      <Navbar />
       <main className="flex flex-col pt-20 items-center min-h-screen px-6 lg:px-32 bg-black text-white">
         <div className="m-auto">
           <video
@@ -22,7 +19,6 @@ export default function Home() {
           />
         </div>
       </main>
-      <Footer />
     </>
   );
 }

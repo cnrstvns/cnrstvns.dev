@@ -1,12 +1,14 @@
+import React from "react";
+
 export default function NotFound() {
-  return '';
+  return "";
 }
 
 export async function getServerSideProps() {
   return {
     redirect: {
+      destination: "/",
       permanent: false,
-      destination: '/',
     },
   };
 }
