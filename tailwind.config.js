@@ -5,10 +5,7 @@ module.exports = {
         black: '#0F1118',
       },
       fontFamily: {
-        sans: [
-          'Inter',
-          'sans-serif',
-        ],
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },

@@ -1,5 +1,5 @@
-import React from "react";
-import Head from "../../components/Head";
+import React from 'react';
+import Head from '../../components/Head';
 
 export default function Resume() {
   return (
@@ -13,24 +13,24 @@ export default function Resume() {
               Skills
             </div>
             <div className="text-base mb-2">
-              <span className="font-semibold">Hands-on:</span>{" "}
+              <span className="font-semibold">Hands-on:</span>{' '}
               <span className="opacity-80">Repair, Organization</span>
             </div>
             <div className="text-base mb-2">
-              <span className="font-semibold">Software:</span>{" "}
+              <span className="font-semibold">Software:</span>{' '}
               <span className="opacity-80">
                 SketchUp, Microsoft Office, Java, Node.JS, React, Next.JS,
                 MongoDB, Tailwind CSS, Microsoft Hyper-V, VMWare ESXi
               </span>
             </div>
             <div className="text-base mb-2">
-              <span className="font-semibold">Interpersonal:</span>{" "}
+              <span className="font-semibold">Interpersonal:</span>{' '}
               <span className="opacity-80">
                 Teamwork, Leadership, Communication
               </span>
             </div>
             <div className="text-base mb-2">
-              <span className="font-semibold">Operating Systems:</span>{" "}
+              <span className="font-semibold">Operating Systems:</span>{' '}
               <span className="opacity-80">
                 Windows, Windows Server, MacOS, Linux, Linux Server
               </span>
@@ -55,7 +55,7 @@ export default function Resume() {
                     href="https://hyper.co"
                   >
                     Hyper
-                  </a>{" "}
+                  </a>{' '}
                   is a platform that helps turn Discord servers into
                   multi-million dollar businesses. As Hyper's first employee, I
                   was responsible for designing features, managing customer
@@ -136,7 +136,7 @@ export default function Resume() {
                   List
                 </div>
                 <div className="text-base">
-                  <span className="font-semibold">Relevant Coursework:</span>{" "}
+                  <span className="font-semibold">Relevant Coursework:</span>{' '}
                   Computational Problem Solving in the Information Domain I/II,
                   Introduction to Routing and Switching, Introduction to
                   Database and Data Modeling, Task Automation Using Interpretive

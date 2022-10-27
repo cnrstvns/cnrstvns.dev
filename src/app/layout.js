@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import { Inter } from "@next/font/google";
-import { usePathname } from "next/navigation";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/index.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import { Inter } from '@next/font/google';
+import { usePathname } from 'next/navigation';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '../styles/index.css';
 
-const inter = Inter({ weight: "variable" });
+const inter = Inter({ weight: 'variable' });
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
       <body>{children}</body>
 
       {/* Footer */}
-      {pathname !== "/about" && <Footer />}
+      {pathname !== '/about' && <Footer />}
     </html>
   );
 }
