@@ -4,6 +4,7 @@ module.exports = {
     es2020: true,
   },
   extends: [
+    'plugin:@next/eslint-plugin-next',
     'plugin:react/recommended',
     'airbnb',
   ],
@@ -14,9 +15,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
@@ -39,13 +38,20 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/no-unescaped-entities': 'off',
     'no-console': 'off',
-    'react/jsx-indent': ['error', 2, { checkAttributes: true, indentLogicalExpressions: true }],
+    'react/jsx-indent': [
+      'error',
+      2,
+      { checkAttributes: true, indentLogicalExpressions: true },
+    ],
     'react/require-default-props': 'off',
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
     'no-shadow': 'off',
     'global-require': 'off',
-    'object-curly-newline': ['error', { minProperties: 5, multiline: true, consistent: true }],
+    'object-curly-newline': [
+      'error',
+      { minProperties: 5, multiline: true, consistent: true },
+    ],
     'react/forbid-prop-types': 'off',
     'func-names': 'off',
     'react/display-name': 'off',
