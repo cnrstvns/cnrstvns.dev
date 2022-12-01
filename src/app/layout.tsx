@@ -9,7 +9,7 @@ import Navbar from '../components/Navbar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 
-const inter = Inter({ weight: ['300', '400', '500'] });
+const inter = Inter({ weight: ['300', '400', '500'], subsets: ['latin'] });
 
 interface Props {
   children: ReactNode;
