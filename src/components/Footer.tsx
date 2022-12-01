@@ -1,10 +1,17 @@
+'use client';
+
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import Link from './Link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === '/') return <></>;
+
   return (
     <div className="border-t border-neutral-700 text-2xl py-10">
       <div className="max-w-5xl mx-auto px-6">

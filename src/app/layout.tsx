@@ -1,9 +1,6 @@
-'use client';
-
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
-import { usePathname } from 'next/navigation';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -16,8 +13,6 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props) {
-  const pathname = usePathname();
-
   return (
     <html className={inter.className} lang="en">
       <Head>
@@ -48,7 +43,7 @@ export default function RootLayout({ children }: Props) {
       <body className="bg-neutral-900">{children}</body>
 
       {/* Footer */}
-      {pathname !== '/about' && <Footer />}
+      <Footer />
     </html>
   );
 }
