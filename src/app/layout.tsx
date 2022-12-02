@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import Footer from '../components/shared/Footer';
 import Navbar from '../components/shared/Navbar';
