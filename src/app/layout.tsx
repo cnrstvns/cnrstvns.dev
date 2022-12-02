@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Footer from '../components/shared/Footer';
+import Navbar from '../components/shared/Navbar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 
