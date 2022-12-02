@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import Link from './Link';
 import { usePathname } from 'next/navigation';
+import Link from './Link';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -12,12 +12,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-opacity-20 backdrop-filter backdrop-blur-sm">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img
-          className="rounded-full max-h-10"
-          src="/images/me.webp"
-          alt="Me (Connor)"
-        />
-        <Link href="/">
+        <Link href="/hype">
           <span className="ml-3 text-white font-medium text-xl tracking-tight cursor-pointer">
             Connor Stevens
           </span>
@@ -64,9 +59,6 @@ export default function Navbar() {
           </Link>
           <Link href="/resume" active={pathname === '/resume'}>
             Resume
-          </Link>
-          <Link href="/about" active={pathname === '/about'}>
-            About
           </Link>
         </div>
       </div>
