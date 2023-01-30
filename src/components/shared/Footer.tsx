@@ -1,9 +1,6 @@
 'use client';
 
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import { usePathname } from 'next/navigation';
 import Link from './Link';
 
@@ -18,23 +15,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4">
           <div className="col-span-2 mb-6 md:mb-0">
             <div className="text-white font-medium mb-2">Connor Stevens</div>
+
             <div className="text-base text-neutral-400 mb-2">
-              <FontAwesomeIcon
-                size="lg"
-                style={{ marginRight: '13px' }}
-                icon={faDiscord}
-              />
-              cnrstvns#0001
-            </div>
-            <div className="text-base text-neutral-400 mb-2">
-              <a href="mailto:conmail1224@gmail.com">
-                <FontAwesomeIcon
-                  size="lg"
-                  style={{ marginRight: '13px' }}
-                  icon={faEnvelope}
-                />
-                conmail1224@gmail.com
-              </a>
+              <a href="mailto:conmail1224@gmail.com">conmail1224@gmail.com</a>
             </div>
             <div className="text-base text-neutral-500">
               © {new Date().getFullYear()} — All rights reserved.
