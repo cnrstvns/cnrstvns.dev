@@ -15,9 +15,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4">
           <div className="col-span-2 mb-6 md:mb-0">
             <div className="text-white font-medium mb-2">Connor Stevens</div>
-
             <div className="text-base text-neutral-400 mb-2">
               <a href="mailto:conmail1224@gmail.com">conmail1224@gmail.com</a>
+            </div>
+
+            <div className="text-base text-neutral-400 mb-2 w-96">
+              "When they say it can't be done, that's when I get started." -
+              A.P.S.
             </div>
             <div className="text-base text-neutral-500">
               © {new Date().getFullYear()} — All rights reserved.
