@@ -12,8 +12,8 @@ export default function Listening() {
 
   return (
     <div className="fixed bottom-0 text-white left-0 w-full bg-neutral-800 items-center flex px-6 py-4 md:py-3 space-x-2">
-      <div className="bg-green-400 rounded-full h-2 w-2 inline-flex animate-pulse" />
-      <div className="">
+      <div className="bg-green-400 rounded-full h-2 w-2 inline-flex animate-pulse flex-shrink-0" />
+      <div>
         <span className="font-light">Listening to: </span>
         <Link
           href={`https://open.spotify.com/track/${data.spotify.track_id}`}
