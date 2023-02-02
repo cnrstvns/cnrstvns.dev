@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from './Link';
@@ -8,6 +8,8 @@ import Link from './Link';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  const handleClick = useCallback(() => setOpen(false), []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-opacity-20 backdrop-filter backdrop-blur-sm">
@@ -54,10 +56,14 @@ export default function Navbar() {
         )}
       >
         <div className="text-sm flex flex-col lg:flex-row lg:flex-grow text-white mt-4 lg:mt-0 space-y-1 lg:space-y-0 space-x-0 lg:space-x-3">
-          <Link href="/" active={pathname === '/'}>
+          <Link onClick={handleClick} href="/" active={pathname === '/'}>
             Home
           </Link>
-          <Link href="/resume" active={pathname === '/resume'}>
+          <Link
+            onClick={handleClick}
+            href="/resume"
+            active={pathname === '/resume'}
+          >
             Resume
           </Link>
         </div>
