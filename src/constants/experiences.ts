@@ -11,11 +11,11 @@ const experiences: Experience[] = [
     location: 'Hyper — Palo Alto, CA',
     timespan: 'May 2021 - Jul. 2022',
     description: `Hyper is a platform that helps turn Discord servers into multi-million
-  dollar businesses. As Hyper's first employee, I was responsible
-  for designing features, managing customer support, overseeing
-  marketing operations, and managing most engineering tasks.
-  During my time at Hyper, our customer count more than tripled
-  and our monthly payments volume grew by over 5 times.`,
+    dollar businesses. As Hyper's first employee, I was responsible
+    for designing features, managing customer support, overseeing
+    marketing operations, and managing most engineering tasks.
+    During my time at Hyper, our customer count more than tripled
+    and our monthly payments volume grew by over 5 times.`,
   },
   {
     title: 'Founder',
