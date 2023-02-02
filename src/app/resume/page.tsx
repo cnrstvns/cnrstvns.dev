@@ -37,7 +37,7 @@ export default function About() {
 
           <div className="space-y-5">
             {experiences.map((experience) => (
-              <Experience experience={experience} />
+              <Experience key={experience.title} experience={experience} />
             ))}
           </div>
         </div>

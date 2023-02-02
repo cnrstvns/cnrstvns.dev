@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { MouseEventHandler, ReactNode } from 'react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 
@@ -9,6 +9,7 @@ interface Props {
   color?: boolean;
   size?: 'sm' | 'md' | 'lg';
   active?: boolean;
+  onClick?: MouseEventHandler;
 }
 
 export default function Link({
@@ -18,11 +19,13 @@ export default function Link({
   size,
   active,
   external = false,
+  onClick,
 }: Props) {
   return (
     <NextLink
       href={href}
       target={external ? '_blank' : '_self'}
+      onClick={onClick}
       rel="noreferrer"
       className={clsx(
         'text-base text-neutral-500 hover:text-neutral-400 transition',
