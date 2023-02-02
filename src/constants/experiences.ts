@@ -15,8 +15,7 @@ const experiences: Experience[] = [
   for designing features, managing customer support, overseeing
   marketing operations, and managing most engineering tasks.
   During my time at Hyper, our customer count more than tripled
-  and our monthly GMV (gross payments volume processed) grew by
-  over 5x.`,
+  and our monthly payments volume grew by over 5 times.`,
   },
   {
     title: 'Founder',
