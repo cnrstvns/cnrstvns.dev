@@ -19,8 +19,8 @@ export default function Listening() {
           href={`https://open.spotify.com/track/${data.spotify.track_id}`}
           className="font-medium hover:underline"
         >
-          {data.spotify.song}{' '}
-        </Link>
+          {data.spotify.song}
+        </Link>{' '}
         <span className="font-light">by </span>
         <span className="font-medium">{data.spotify.artist}</span>
       </div>
