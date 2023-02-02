@@ -11,8 +11,8 @@ export default function Listening() {
   if (state !== 'loaded' || !data.spotify) return null;
 
   return (
-    <div className="absolute bottom-0 text-white left-0 w-full bg-neutral-800 items-center flex px-6 py-4 md:py-3 space-x-2">
-      <div className="bg-green-400 rounded-full h-2 w-2  animate-pulse" />
+    <div className="fixed bottom-0 text-white left-0 w-full bg-neutral-800 items-center flex px-6 py-4 md:py-3 space-x-2">
+      <div className="bg-green-400 rounded-full h-2 w-2 inline-flex animate-pulse" />
       <div className="">
         <span className="font-light">Listening to: </span>
         <Link
