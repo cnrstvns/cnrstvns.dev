@@ -16,7 +16,7 @@ export default function About() {
           <div className="text-base mb-2">
             <span className="font-semibold">Software:</span>{' '}
             <span className="opacity-80">
-              Typescript, React, Next.JS, Tailwind CSS, MongoDB
+              Typescript, React, Tailwind, Postgres/mySQL, MongoDB
             </span>
           </div>
           <div className="text-base mb-2">
@@ -28,7 +28,7 @@ export default function About() {
           <div className="text-base mb-2">
             <span className="font-semibold">Operating Systems:</span>{' '}
             <span className="opacity-80">
-              Windows, Windows Server, MacOS, Linux, Linux Server
+              macOS, Linux, Windows, Windows Server
             </span>
           </div>
         </div>
@@ -69,7 +69,16 @@ export default function About() {
                   Introduction to Routing and Switching, Introduction to
                   Database and Data Modeling, Task Automation Using Interpretive
                   Languages, Information Assurance and Security, Systems
-                  Administration I, Web and Mobile I/II
+                  Administration I/II, Designing the User Experience, Project
+                  Management, Web and Mobile I/II
+                </span>
+              </div>
+              <div className="text-base">
+                <span className="font-semibold">Note:</span>
+                <span className="text-neutral-300">
+                  {' '}
+                  Completed an extended cooperative education experience from
+                  June 2021 to July 2022.
                 </span>
               </div>
             </div>
