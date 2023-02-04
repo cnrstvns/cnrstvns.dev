@@ -28,14 +28,14 @@ const experiences: Experience[] = [
   },
   {
     title: 'Sole Proprietor',
-    location: 'Information Technology Consultant - Ridgewood, NJ',
+    location: 'Information Technology Consultant — Ridgewood, NJ',
     timespan: 'Jan. 2019 - Jun. 2021',
     description: `Installation and configuration of enterprise-grade networking equipment,
     including but not limited to: routers, switches, access points and other network appliances.`,
   },
   {
     title: 'Assistant IT Technician',
-    location: 'Ridgewood High School - Ridgewood, NJ',
+    location: 'Ridgewood High School — Ridgewood, NJ',
     timespan: 'Jul. 2017 - Aug. 2019',
     description: `Responsible for repairs of student and faculty
     devices as well as maintenance and installation of classroom equipment.`,
