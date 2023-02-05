@@ -66,6 +66,13 @@ export default function Navbar() {
           >
             Resume
           </Link>
+          <Link
+            onClick={handleClick}
+            href="/photos"
+            active={pathname === '/photos'}
+          >
+            Photos
+          </Link>
         </div>
       </div>
     </nav>
