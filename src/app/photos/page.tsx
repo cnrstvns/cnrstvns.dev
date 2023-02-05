@@ -1,22 +1,28 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Image from 'next/image';
 
 function Row({ images }: { images: string[] }) {
   return (
     <div className="flex w-full rounded overflow-hidden">
-      <img
+      <Image
         className="w-1/3"
         src={`/images/photos/IMG_${images[0]}.jpeg`}
+        width={1152}
+        height={150}
         alt=""
       />
-      <img
+      <Image
         className="w-1/3"
         src={`/images/photos/IMG_${images[1]}.jpeg`}
+        width={1152}
+        height={150}
         alt=""
       />
-      <img
+      <Image
         className="w-1/3"
         src={`/images/photos/IMG_${images[2]}.jpeg`}
+        width={1152}
+        height={150}
         alt=""
       />
     </div>
@@ -33,14 +39,18 @@ export default function Photos() {
         </div>
 
         <div className="flex-col space-y-4">
-          <img
+          <Image
             className="rounded overflow-hidden"
             src="/images/photos/IMG_2732.jpeg"
+            width={1152}
+            height={150}
             alt=""
           />
-          <img
+          <Image
             className="rounded overflow-hidden"
             src="/images/photos/IMG_2425.jpeg"
+            width={1152}
+            height={150}
             alt=""
           />
           <Row images={['2431', '2203', '2190']} />
