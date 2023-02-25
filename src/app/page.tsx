@@ -32,7 +32,7 @@ export default async function Index() {
             <Link size="sm" href="https://linkedin.com/in/cnrstvns" external>
               linkedin
             </Link>
-            <Link size="sm" href="mailto:connor@hyper.co" external>
+            <Link size="sm" href="mailto:conmail1224@gmail.com" external>
               email
             </Link>
           </div>
