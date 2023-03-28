@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+import { Config } from 'tailwindcss';
 
-module.exports = {
+export default {
   content: ['./src/app/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
   theme: {
     extend: {},
@@ -9,4 +9,4 @@ module.exports = {
   fontFamily: {
     sans: ['system-ui', 'sans-serif'],
   },
-};
+} satisfies Config;
