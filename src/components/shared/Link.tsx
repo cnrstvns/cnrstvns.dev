@@ -1,16 +1,15 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
+import React, { MouseEventHandler, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 
-interface Props {
+type Props = PropsWithChildren<{
   href: string;
-  children: ReactNode;
   external?: boolean;
   color?: boolean;
   size?: 'sm' | 'md' | 'lg';
   active?: boolean;
   onClick?: MouseEventHandler;
-}
+}>;
 
 export default function Link({
   href,
