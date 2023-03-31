@@ -1,7 +1,7 @@
 import React from 'react';
-import Experience from '../../components/resume/Experience';
-import SectionTitle from '../../components/resume/SectionTitle';
-import experiences from '../../constants/experiences';
+import experiences from '@/constants/experiences';
+import Experience from '@/components/resume/Experience';
+import SectionTitle from '@/components/resume/SectionTitle';
 
 export default function About() {
   return (
