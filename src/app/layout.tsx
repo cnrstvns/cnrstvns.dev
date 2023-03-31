@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { type Metadata } from 'next';
-import Footer from '../components/shared/Footer';
-import Navbar from '../components/shared/Navbar';
+import Footer from '@/components/shared/Footer';
+import Navbar from '@/components/shared/Navbar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 

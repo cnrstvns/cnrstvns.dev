@@ -3,7 +3,7 @@
 import { useLanyard } from 'use-lanyard';
 import React from 'react';
 import Link from 'next/link';
-import { DISCORD_ID } from '../../constants/lanyard';
+import { DISCORD_ID } from '@/constants/lanyard';
 
 export default function Listening() {
   const { state, data } = useLanyard(DISCORD_ID);

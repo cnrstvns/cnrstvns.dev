@@ -1,5 +1,5 @@
 import React from 'react';
-import { Experience as ExperienceType } from '../../constants/experiences';
+import { Experience as ExperienceType } from '@/constants/experiences';
 
 interface Props {
   experience: ExperienceType;
