@@ -1,14 +1,9 @@
 'use client';
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
 import Link from './Link';
 
 export default function Footer() {
-  const pathname = usePathname();
-
-  if (pathname === '/' || pathname === '/hype') return null;
-
   return (
     <div className="border-t border-neutral-700 text-2xl py-10">
       <div className="max-w-5xl mx-auto px-6">
