@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { Link } from './Link';
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const handleClick = useCallback(() => setOpen(false), []);
 
