@@ -11,7 +11,7 @@ type Props = PropsWithChildren<{
   onClick?: MouseEventHandler;
 }>;
 
-export default function Link({
+export function Link({
   href,
   children,
   color,

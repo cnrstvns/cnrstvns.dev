@@ -1,11 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 
 export default function Headers() {
   const [headers, setHeaders] = useState('');
 
-  function format() {
+  const handleChangeHeaders = useCallback(
+    (e: ChangeEvent<HTMLTextAreaElement>) => {
+      setHeaders(e.target.value);
+    },
+    [],
+  );
+
+  const handleFormat = useCallback(() => {
     try {
       const formattedHeaders: Record<string, string> = {};
 
@@ -17,10 +24,12 @@ export default function Headers() {
           const newKey = unescape(key.trim());
           formattedHeaders[newKey] = unescape(val.trim());
         });
+
       setHeaders(JSON.stringify(formattedHeaders, null, 2));
-      // eslint-disable-next-line no-empty
-    } catch (err) {}
-  }
+    } catch (err) {
+      console.error('Something went wrong.');
+    }
+  }, [headers]);
 
   return (
     <div className="flex flex-col items-center min-h-screen px-6 lg:px-32 text-white">
@@ -33,14 +42,14 @@ export default function Headers() {
           </div>
           <textarea
             value={headers}
-            onChange={(e) => setHeaders(e.target.value)}
+            onChange={handleChangeHeaders}
             className="text-neutral-300 border resize-none border-neutral-500 bg-transparent rounded focus:outline-none h-80 w-full p-2"
           />
         </div>
         <button
           className="mt-2 p-1.5 px-4 text-neutral-400 border border-neutral-500 rounded hover:bg-neutral-400 hover:text-black transition"
           type="button"
-          onClick={() => format()}
+          onClick={handleFormat}
         >
           Format
         </button>

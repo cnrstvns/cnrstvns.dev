@@ -5,7 +5,7 @@ export interface Experience {
   description: string;
 }
 
-const experiences: Experience[] = [
+export const experiences: Experience[] = [
   {
     title: 'Lead Engineer',
     location: 'Hyper — Palo Alto, CA',
@@ -41,5 +41,3 @@ const experiences: Experience[] = [
     devices as well as maintenance and installation of classroom equipment.`,
   },
 ];
-
-export default experiences;

@@ -51,5 +51,6 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'func-names': 'off',
     'react/display-name': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
