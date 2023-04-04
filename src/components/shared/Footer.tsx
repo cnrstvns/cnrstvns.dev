@@ -11,8 +11,8 @@ export function Footer() {
           <div className="col-span-2 mb-6 md:mb-0">
             <div className="text-white font-medium mb-2">Connor Stevens</div>
             <div className="text-base text-neutral-400 mb-2 w-96">
-              "When they say it can't be done, that's when I get started." -
-              A.P.S.
+              &quot;When they say it can&apos;t be done, that&apos;s when I get
+              started.&quot; - A.P.S.
             </div>
             <div className="text-base text-neutral-500">
               © {new Date().getFullYear()} — All rights reserved.

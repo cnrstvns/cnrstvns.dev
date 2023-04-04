@@ -4,8 +4,8 @@ export default function Hype() {
   return (
     <div className="flex flex-col pt-32 items-center min-h-screen px-6 lg:px-32 text-white m-auto">
       <div className="text-base text-neutral-400 max-w-md pb-8">
-        If you've made it here, you've found something I've hidden on this site.
-        Enjoy.
+        If you&apos;ve made it here, you&apos;ve found something I&apos;ve
+        hidden on this site. Enjoy.
       </div>
       <video
         muted
