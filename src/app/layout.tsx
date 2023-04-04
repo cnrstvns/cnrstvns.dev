@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { type Metadata } from 'next';
-import Navbar from '@/components/shared/Navbar';
+import { Navbar } from '@/components/shared/Navbar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 

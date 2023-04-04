@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { DISCORD_ID } from '@/constants/lanyard';
 
-export default function Listening() {
+export function Listening() {
   const { state, data } = useLanyard(DISCORD_ID);
 
   if (state !== 'loaded' || !data.spotify) return null;

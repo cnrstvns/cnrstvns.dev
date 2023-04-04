@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from './Link';
+import { Link } from './Link';
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="border-t border-neutral-700 text-2xl py-10">
       <div className="max-w-5xl mx-auto px-6">

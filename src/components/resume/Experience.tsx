@@ -5,7 +5,7 @@ interface Props {
   experience: ExperienceType;
 }
 
-export default function Experience({ experience }: Props) {
+export function Experience({ experience }: Props) {
   return (
     <div>
       <div className="font-semibold text-xl text-blue-300">

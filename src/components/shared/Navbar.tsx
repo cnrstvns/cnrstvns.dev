@@ -3,9 +3,9 @@
 import React, { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import Link from './Link';
+import { Link } from './Link';
 
-export default function Navbar() {
+export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 

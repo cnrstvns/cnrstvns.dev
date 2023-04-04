@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import Listening from '@/components/shared/Listening';
-import Link from '@/components/shared/Link';
+import { Listening } from '@/components/shared/Listening';
+import { Link } from '@/components/shared/Link';
 
 export default async function Index() {
   return (
