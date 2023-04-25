@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { type Metadata } from 'next';
 import { Navbar } from '@/components/shared/Navbar';
+import { Analytics } from '@vercel/analytics/react';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 
@@ -25,7 +26,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <Navbar />
 
       {/* Main content */}
-      <body className="bg-neutral-900">{children}</body>
+      <body className="bg-neutral-900">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
