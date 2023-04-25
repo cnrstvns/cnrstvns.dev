@@ -12,10 +12,10 @@ export function Navbar() {
   const handleClick = useCallback(() => setOpen(false), []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-opacity-20 backdrop-filter backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-neutral-900">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/hype">
-          <span className="ml-3 text-white font-medium text-xl tracking-tight cursor-pointer">
+          <span className="text-white font-medium text-xl tracking-tight cursor-pointer">
             Connor Stevens
           </span>
         </Link>
@@ -24,7 +24,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="flex items-center px-3 py-2 rounded text-white hover:border-white focus:outline-none"
+          className="flex items-center text-white focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
