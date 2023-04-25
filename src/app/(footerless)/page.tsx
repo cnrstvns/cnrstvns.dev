@@ -3,7 +3,7 @@ import React from 'react';
 import { Listening } from '@/components/shared/Listening';
 import { Link } from '@/components/shared/Link';
 
-export default async function Index() {
+export default function Index() {
   return (
     <>
       <div className="flex flex-col p-10 lg:flex-row min-h-screen items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">

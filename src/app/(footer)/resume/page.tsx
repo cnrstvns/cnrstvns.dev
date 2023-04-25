@@ -16,7 +16,7 @@ export default function About() {
           <div className="text-base mb-2">
             <span className="font-semibold">Software:</span>{' '}
             <span className="opacity-80">
-              Typescript, React, Tailwind, Postgres/mySQL, MongoDB
+              Typescript, React, Tailwind, PostgreSQL/mySQL, MongoDB
             </span>
           </div>
           <div className="text-base mb-2">
