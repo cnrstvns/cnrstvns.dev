@@ -1,9 +1,9 @@
-export interface Experience {
+export type Experience = {
   title: string;
   location: string;
   timespan: string;
   description: string;
-}
+};
 
 export const experiences: Experience[] = [
   {

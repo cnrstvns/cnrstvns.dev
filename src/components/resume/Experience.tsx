@@ -1,9 +1,9 @@
 import React from 'react';
 import { Experience as ExperienceType } from '@/constants/experiences';
 
-interface Props {
+type Props = {
   experience: ExperienceType;
-}
+};
 
 export function Experience({ experience }: Props) {
   return (
