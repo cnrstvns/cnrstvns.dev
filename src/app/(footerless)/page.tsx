@@ -16,7 +16,7 @@ export default function Index() {
         />
         <div className="flex flex-col justify-start">
           <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white">
-            a Connor Stevens
+            Connor Stevens
           </div>
           <div className="text-neutral-400 mt-1">
             Student, Software Engineer
