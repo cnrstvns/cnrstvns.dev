@@ -6,7 +6,7 @@ import { Link } from '@/components/shared/Link';
 export default function Index() {
   return (
     <>
-      <div className="flex flex-col p-10 lg:flex-row min-h-screen items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
+      <div className="flex flex-col p-10 lg:flex-row min-h-screen sm:overflow:hidden overflow-auto items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
         <Image
           className="rounded-md md:rounded"
           src="/images/me.webp"
