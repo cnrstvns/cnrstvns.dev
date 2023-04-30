@@ -42,6 +42,7 @@ export default function Photos() {
             width={1152}
             height={150}
             alt=""
+            priority
           />
           <Image
             className="rounded-sm overflow-hidden"
@@ -49,6 +50,7 @@ export default function Photos() {
             width={1152}
             height={150}
             alt=""
+            priority
           />
           <Row images={['2431', '2203', '2190']} />
           <Row images={['2552', '2197', '2131']} />
