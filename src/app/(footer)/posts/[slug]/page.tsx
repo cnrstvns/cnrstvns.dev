@@ -57,7 +57,7 @@ export default function Post({ params: { slug } }: Params) {
         <div>
           <Link
             href="/posts"
-            className="text-center text-neutral-400 text-sm font-medium uppercase"
+            className="text-center text-neutral-400 hover:text-neutral-300 transition text-sm font-medium uppercase"
           >
             <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
             go back
@@ -66,6 +66,7 @@ export default function Post({ params: { slug } }: Params) {
 
         <div className="space-y-1">
           <h1 className="text-3xl font-bold">{post.title}</h1>
+          <div className="text-neutral-400">{post.description}</div>
           <time dateTime={post.date} className="text-sm text-neutral-500">
             {dayjs(post.createdAt).format('MMMM D, YYYY')}
             {' • '}
