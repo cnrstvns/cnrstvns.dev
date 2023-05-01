@@ -27,9 +27,9 @@ export default async function generateOGImage(
 
   const post = allPosts.find((p) => p.path === slug);
 
-  const viewCount = await kv
-    .get(slug)
-    .then((response) => parseInt(response as string, 10));
+  const viewCount =
+    (await kv.get(slug).then((response) => parseInt(response as string, 10))) ??
+    0;
 
   if (!post) return new Response('Not found', { status: 404 });
 
