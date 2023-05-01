@@ -27,10 +27,11 @@ export function generateMetadata({
     return;
   }
 
-  const { title } = post;
+  const { title, description } = post;
 
   return {
     title: `${title} - Connor Stevens`,
+    description,
     openGraph: {
       title: `${title} - Connor Stevens`,
       type: 'article',
