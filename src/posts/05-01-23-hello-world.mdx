@@ -1,0 +1,285 @@
+---
+title: Hello World
+date: 2023-05-01:00:00:00
+description: Some plans for the blog and how it all works.
+---
+
+Welcome to my new blog. I started working on this for fun to see what it's
+like to build a blog on top of Next.JS. Turns out, it's pretty easy and
+the end result can be really cool. I'll dive in to the inner workings with
+the goal of hopefully helping someone else on the same journey.
+
+### How it works
+
+All blog posts are written in MDX. MDX allows you to use JSX in markdown,
+enabling much more complex content to be included in markdown. This portion
+of my site is powered by a few packages:
+
+- Most notably, the [contentlayer](https://github.com/contentlayerdev/contentlayer) package by [Contentlayer](https://contentlayer.dev). It deals with parsing my mdx into
+  beautiful type-safe objects that I can reference to build up the pages you are visiting
+- [remark-gfm](https://github.com/remarkjs/remark-gfm) to enable Github's extended markdown syntax when writing posts
+- [rehype-pretty-code](https://github.com/atomiks/rehype-pretty-code) for syntax highlighting in code blocks
+- [reading-time](https://github.com/ngryman/reading-time) to calculate average reading times for my posts
+- [unist-util-visit](https://github.com/syntax-tree/unist-util-visit-children) to perform some AST transformations for code blocks
+
+<br />
+### Setting up contentlayer
+
+Setting up contentlayer is not too difficult. I followed their tutorial [here](),
+and I'd recommend you do the same. Alternatively, you can just install the necessary packages and "borrow" my config
+[here](https://gist.github.com/cnrstvns/47cdd79ae9117a3724d98c826e00d21a).
+
+I created a single post schema given that I only have one type of post. I've also
+required that each post have a title, date, and description. These will be used to build
+the "Post List" page, as well as used when rendering the header for each individual post.
+
+I've also created a few computed fields — these are keys that will be available on every
+generated `Post` object from contentlayer.
+
+```ts title="contentlayer.config.ts"
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: `**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the post',
+      required: true,
+    },
+    date: {
+      type: 'date',
+      description: 'The date of the post',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'The description of the post',
+      required: true,
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+    },
+    path: {
+      type: 'string',
+      resolve: (post) => post._raw.flattenedPath,
+    },
+    createdAt: {
+      type: 'number',
+      resolve: (post) => new Date(post.date).getTime(),
+    },
+    readingTime: {
+      type: 'string',
+      resolve: (post) => readingTime(post.body.raw).text,
+    },
+  },
+}));
+
+export default makeSource({
+  contentDirPath: 'src/posts',
+  documentTypes: [Post],
+});
+```
+
+<br />
+### Enabling syntax highlighting
+
+Getting syntax highlighting working reliably took the longest when setting this blog up.
+You'll need to add some additional configuration to your `contentlayer.config.ts`. Inside of your call
+to `makeSource`, include the following code:
+
+```ts title="contentlayer.config.ts"
+export default makeSource({
+  // ... the rest of the configuration we already set up
+  mdx: {
+    // Include GitHub markdown plugin
+    remarkPlugins: [remarkGfm],
+
+    rehypePlugins: [
+      // Include rehype syntax highlighting plugin
+      [
+        rehypePrettyCode,
+        {
+          // Pass our theme in, or use a default from shiki
+          theme,
+
+          // AST handling for highlighting and copying of empty lines
+          onVisitLine(node: any) {
+            if (node.children.length === 0) {
+              node.children = [{ type: 'text', value: ' ' }];
+            }
+          },
+          onVisitHighlightedLine(node: any) {
+            node.properties.className.push('line--highlighted');
+          },
+          onVisitHighlightedWord(node: any) {
+            node.properties.className = ['word--highlighted'];
+          },
+        },
+      ],
+
+      // AST transformation to pass raw value to each code block
+      () => (tree) => {
+        visit(tree, (node) => {
+          if (node?.type === 'element' && node?.tagName === 'div') {
+            if (!('data-rehype-pretty-code-fragment' in node.properties)) {
+              return;
+            }
+
+            for (const child of node.children) {
+              if (child.tagName === 'pre') {
+                child.properties.raw = node.raw;
+              }
+            }
+          }
+        });
+      },
+    ],
+  },
+});
+```
+
+<br />
+### Styling the code blocks
+
+Now that syntax highlighting is working properly, we need to make our code blocks look a little better.
+We can easily handle this in our global css file, by adding the following properties. Please note that I'm using TailwindCSS,
+so these properties may differ if you are not using Tailwind.
+
+```css title="globals.css"
+/* Empty line styling */
+div[data-rehype-pretty-code-fragment] code {
+  display: grid;
+}
+
+/* Apply styling to code block */
+div[data-rehype-pretty-code-fragment] {
+  overflow: hidden;
+  @apply bg-neutral-800 rounded-sm leading-6 py-0;
+}
+
+/* Apply styling to code block body */
+div[data-rehype-pretty-code-fragment] pre {
+  overflow-x: scroll;
+  @apply bg-neutral-800 px-5 py-0 text-sm leading-7;
+}
+
+/* Apply styling to code block title */
+div[data-rehype-pretty-code-title] {
+  @apply bg-neutral-700 px-4 py-2 text-sm text-neutral-300 font-medium;
+}
+```
+
+Once you've applied styling to your code blocks, they'll be looking a lot nicer. Let's move on to creating the other primitives we'll need.
+
+<br />
+### Extending contentlayer
+
+Contentlayer allows you to create React components, use them in Markdown and then will render everything as if
+it were written in a React page.
+
+For this blog, we'll be keeping things pretty basic. I'll start with the following components, and add more as I see fit.
+
+- Figure, for posting images with captions in a consistent manner.
+- Override the `a` tag to use `next/link` for internal links.
+- Expose `Image` from `next/image` for optimized image loading
+
+```tsx title="components.tsx"
+const linkClassName = 'text-blue-400 hover:text-blue-500 transition';
+
+export const mdxComponents: MDXComponents = {
+  /* Override the `a` tag so when a link is internal,
+   * use the Next.js link component
+   */
+  a: ({ href, children }) => {
+    if (!href?.startsWith('/')) {
+      return (
+        <a
+          className={linkClassName}
+          href={href as string}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
+
+    return (
+      <Link className={linkClassName} href={href as string}>
+        {children}
+      </Link>
+    );
+  },
+  /* Custom figure component for images */
+  Figure: ({
+    src,
+    width,
+    height,
+    caption,
+    className,
+  }: {
+    src: string;
+    width: number;
+    height: number;
+    caption: string;
+    className?: string;
+  }) => {
+    return (
+      <figure className="flex flex-col w-full items-center">
+        <Image
+          src={src}
+          width={width}
+          height={height}
+          alt={caption}
+          className={clsx('rounded-sm', className)}
+        />
+        <figcaption className="mt-1.5 text-sm text-neutral-400">
+          {caption}
+        </figcaption>
+      </figure>
+    );
+  },
+};
+```
+
+Great, we've enabled syntax highlighting, styled our code blocks, and created the necessary custom components. We're ready to write some content.
+
+<br />
+### Writing our first post
+
+Now that we have all the pieces ready, we can write a short demo to show off what we've been working on.
+
+```mdx title="src/posts/hello-world.mdx"
+---
+title: Hello World
+date: 2023-05-01:00:00:00
+description: Some plans for the blog and how it all works.
+---
+
+Hello world. This is a demo post for my first blog post. Here's some text: wow! text... goes, here?
+
+<Figure
+  src="/images/me.webp"
+  width={200}
+  height={200}
+  caption="The owner of this house"
+/>
+```
+
+If all is configured properly, you should be able to visit your post page and view the content you just wrote.
+If not, you're SOL. Just kidding — try asking ChatGPT. Or, if you're old school, give the old google-fu a go.
+
+<br />
+### Credit where credit is due
+
+Setting this blog up wasn't exactly straight forward. Thanks to the following folks/resources that I referenced when getting this off the ground.
+Shout-out to [Rishaan](https://rishaan.com/) for toughing it out with me on Discord.
+
+- Shad's UI docs source [here](https://github.com/shadcn/ui/tree/main/apps/www)
+- LeeRob's blog source [here](https://github.com/leerob/leerob.io)
+- Contentlayer's getting started guide [here](https://www.contentlayer.dev/docs/getting-started)
+- Delba's guide on build-time syntax highlighting [here](https://delba.dev/blog/next-blog-build-time-syntax-highlighting)
