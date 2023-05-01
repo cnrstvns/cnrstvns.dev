@@ -86,7 +86,7 @@ export function Navbar() {
           <Link
             onClick={handleClick}
             href="/posts"
-            active={pathname.includes('/posts')}
+            active={pathname?.includes('/posts')}
           >
             Posts
           </Link>
