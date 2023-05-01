@@ -1,30 +1,37 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-props-no-spreading */
 import Link from 'next/link';
 import type { MDXComponents } from 'mdx/types';
 import Image from 'next/image';
 import clsx from 'clsx';
 
-const linkClassName = 'text-blue-400 hover:text-blue-500 transition';
+const linkClassName =
+  'text-blue-400 hover:text-blue-500 transition no-underline';
 
 export const mdxComponents: MDXComponents = {
-  a: ({ href, children }) => {
-    if (!href?.startsWith('/')) {
+  a: ({ href, children, ref, ...props }) => {
+    if (href?.startsWith('/')) {
       return (
-        <a
-          className={linkClassName}
-          href={href as string}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Link className={linkClassName} href={href as string} {...props}>
           {children}
-        </a>
+        </Link>
       );
     }
 
+    if (href?.startsWith('#')) {
+      return <a className={linkClassName} href={href} {...props} />;
+    }
+
     return (
-      <Link className={linkClassName} href={href as string}>
+      <a
+        href={href}
+        className={linkClassName}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+      >
         {children}
-      </Link>
+      </a>
     );
   },
   Figure: ({
