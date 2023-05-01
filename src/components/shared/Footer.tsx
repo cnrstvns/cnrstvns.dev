@@ -15,7 +15,7 @@ export function Footer() {
               started.&quot; - A.P.S.
             </div>
             <div className="text-base text-neutral-500">
-              © {new Date().getFullYear()} — All rights reserved.
+              Copyright {new Date().getFullYear()} — All rights reserved.
             </div>
           </div>
           <div>
