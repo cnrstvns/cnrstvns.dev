@@ -44,8 +44,6 @@
     @apply text-neutral-500 !important;
   }
 
-  /**leerob */
-
   .prose .anchor {
     @apply absolute invisible no-underline;
 
