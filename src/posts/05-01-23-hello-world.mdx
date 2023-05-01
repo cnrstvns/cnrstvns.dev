@@ -9,6 +9,12 @@ like to build a blog on top of Next.JS. Turns out, it's pretty easy and
 the end result can be really cool. I'll dive in to the inner workings with
 the goal of hopefully helping someone else on the same journey.
 
+### Goal for the blog
+
+Occasionally I have the urge to write about something. Often it will be about tech or a business idea, but
+who knows. Now that I've given myself this creative outlet we'll see what I can come up with. No promises on
+the frequency at which I post on here.
+
 ### How it works
 
 All blog posts are written in MDX. MDX allows you to use JSX in markdown,
@@ -185,7 +191,6 @@ For this blog, we'll be keeping things pretty basic. I'll start with the followi
 
 - Figure, for posting images with captions in a consistent manner.
 - Override the `a` tag to use `next/link` for internal links.
-- Expose `Image` from `next/image` for optimized image loading
 
 ```tsx title="components.tsx"
 const linkClassName = 'text-blue-400 hover:text-blue-500 transition';
@@ -249,6 +254,111 @@ export const mdxComponents: MDXComponents = {
 Great, we've enabled syntax highlighting, styled our code blocks, and created the necessary custom components. We're ready to write some content.
 
 <br />
+### Rendering a post
+
+In order for visitors to read the posts you write, you'll need to create a page that fetches a post based on a URL parameter.
+I've created a page at `/posts/[slug]/page.tsx` (in the `app` directory).
+
+This component is pretty straightforward, it's mostly CSS layout and some details. What you should pay attention to
+is this `MDX` component. It renders the actual markdown content on the page. We'll explain that next.
+
+```tsx title="/posts/[slug]/page.tsx"
+// Statically generate blog posts at build-time
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.path,
+  }));
+}
+
+// Generate SEO data for each page
+export function generateMetadata({
+  params: { slug },
+}: Params): Metadata | undefined {
+  const post = allPosts.find((p) => p.path === slug);
+
+  if (!post) {
+    return;
+  }
+
+  const { title, description } = post;
+
+  return {
+    title: `${title} - Connor Stevens`,
+    description,
+    openGraph: {
+      title: `${title} - Connor Stevens`,
+      type: 'article',
+      url: `https://cnrstvns.dev/posts/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+    },
+  };
+}
+
+// Post component
+export default function Post({ params: { slug } }: Params) {
+  // Find the post from `allPosts` provided by `contentlayer`
+  const post = allPosts.find((p) => p.path === slug);
+
+  if (!post) {
+    return notFound();
+  }
+
+  return (
+    <div className="flex flex-col max-w-4xl mx-auto pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
+      <div className="flex flex-col items-start space-y-5">
+        <div>
+          <Link
+            href="/posts"
+            className="text-center text-neutral-400 hover:text-neutral-300 transition text-sm font-medium uppercase"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
+            go back
+          </Link>
+        </div>
+
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold">{post.title}</h1>
+          <time dateTime={post.date} className="text-sm text-neutral-500">
+            {dayjs(post.createdAt).format('MMMM D, YYYY')}
+            {' • '}
+            {post.readingTime}
+          </time>
+        </div>
+
+        <article className="text-white space-y-4 w-full md:w-[unset] prose prose-invert">
+          {/* Render our MDX component */}
+          <MDX code={post.body.code} />
+        </article>
+
+        <div className="w-full border-t border-neutral-500 py-4 text-neutral-500">
+          Thanks for reading. If you enjoyed this post, check back at a later
+          date for more new content.
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+<br />
+### The markdown renderer
+
+We'll create a client component so that we can call the `useMDXComponent` hook. This hook allows us to transform
+the JSX we write in our MDX into HTML that our browser can understand. Render this component, and pass in the
+`mdxComponents` object that we created earlier.
+
+```tsx title="mdx.tsx"
+export function MDX({ code }: MDXProps) {
+  const Component = useMDXComponent(code);
+
+  return <Component components={mdxComponents} />;
+}
+```
+
+<br />
 ### Writing our first post
 
 Now that we have all the pieces ready, we can write a short demo to show off what we've been working on.
@@ -276,7 +386,7 @@ If not, you're SOL. Just kidding — try asking ChatGPT. Or, if you're old schoo
 <br />
 ### Credit where credit is due
 
-Setting this blog up wasn't exactly straight forward. Thanks to the following folks/resources that I referenced when getting this off the ground.
+Setting this blog up wasn't exactly straight forward. Thanks to the following folks/resources that I referenced while getting this off the ground.
 Shout-out to [Rishaan](https://rishaan.com/) for toughing it out with me on Discord.
 
 - Shad's UI docs source [here](https://github.com/shadcn/ui/tree/main/apps/www)

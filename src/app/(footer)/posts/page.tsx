@@ -15,7 +15,7 @@ function PostCard({ post }: { post: Post }) {
         {' • '}
         {post.readingTime}
       </time>
-      <div className="text-blue-300 text-xl font-medium">{post.title}</div>
+      <div className="text-blue-300 text-xl font-semibold">{post.title}</div>
       <div className="text-neutral-200">{post.description}</div>
     </Link>
   );
