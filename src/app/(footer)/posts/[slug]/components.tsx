@@ -4,12 +4,16 @@ import Link from 'next/link';
 import type { MDXComponents } from 'mdx/types';
 import Image from 'next/image';
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 const linkClassName =
   'text-blue-400 hover:text-blue-500 transition no-underline';
 
 export const mdxComponents: MDXComponents = {
   a: ({ href, children, ref, ...props }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const pathname = usePathname();
+
     if (href?.startsWith('/')) {
       return (
         <Link className={linkClassName} href={href as string} {...props}>
@@ -19,7 +23,18 @@ export const mdxComponents: MDXComponents = {
     }
 
     if (href?.startsWith('#')) {
-      return <a className={linkClassName} href={href} {...props} />;
+      return (
+        <a
+          onClick={() =>
+            navigator.clipboard.writeText(
+              `https://cnrstvns.dev${pathname}${href}`,
+            )
+          }
+          className={linkClassName}
+          href={href}
+          {...props}
+        />
+      );
     }
 
     return (
