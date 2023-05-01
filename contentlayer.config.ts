@@ -6,6 +6,8 @@ import readingTime from 'reading-time';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { theme } from './src/constants/theme';
 
 export const Post = defineDocumentType(() => ({
@@ -56,6 +58,8 @@ export default makeSource({
     // Github markdown plugin
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      // Rehype slug plugin
+      rehypeSlug,
       // Rehype syntax highlighting plugin
       [
         rehypePrettyCode,
@@ -90,6 +94,14 @@ export default makeSource({
           }
         });
       },
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['anchor'],
+          },
+        },
+      ],
     ],
   },
 });
