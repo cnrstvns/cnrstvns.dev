@@ -12,7 +12,7 @@ export function Navbar() {
   const handleClick = useCallback(() => setOpen(false), []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-neutral-900">
+    <div className="fixed top-0 left-0 right-0 flex items-center justify-between flex-wrap border-b border-neutral-700 p-6 bg-neutral-900">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/hype">
           <span className="text-white font-medium text-xl tracking-tight cursor-pointer">
@@ -82,6 +82,6 @@ export function Navbar() {
           </Link>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

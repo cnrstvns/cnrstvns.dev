@@ -6,9 +6,10 @@ import { notFound } from 'next/navigation';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dayjs from 'dayjs';
+import { MDX } from './mdx';
 
 type Params = {
-  params: { post: string };
+  params: { slug: string };
 };
 
 export async function generateStaticParams() {
@@ -18,9 +19,9 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({
-  params: { post: postId },
+  params: { slug },
 }: Params): Metadata | undefined {
-  const post = allPosts.find((p) => p.path === postId);
+  const post = allPosts.find((p) => p.path === slug);
 
   if (!post) {
     return;
@@ -33,7 +34,7 @@ export function generateMetadata({
     openGraph: {
       title: `${title} - Connor Stevens`,
       type: 'article',
-      url: `https://cnrstvns.dev/posts/${postId}`,
+      url: `https://cnrstvns.dev/posts/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -42,8 +43,8 @@ export function generateMetadata({
   };
 }
 
-export default function Post({ params: { post: postId } }: Params) {
-  const post = allPosts.find((p) => p.path === postId);
+export default function Post({ params: { slug } }: Params) {
+  const post = allPosts.find((p) => p.path === slug);
 
   if (!post) {
     return notFound();
@@ -57,7 +58,7 @@ export default function Post({ params: { post: postId } }: Params) {
             href="/posts"
             className="text-center text-neutral-400 text-sm font-medium uppercase"
           >
-            <FontAwesomeIcon icon={faArrowLeft} className="mr-3" />
+            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
             go back
           </Link>
         </div>
@@ -66,13 +67,14 @@ export default function Post({ params: { post: postId } }: Params) {
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <time dateTime={post.date} className="text-sm text-neutral-500">
             {dayjs(post.createdAt).format('MMMM D, YYYY')}
+            {' • '}
+            {post.readingTime}
           </time>
         </div>
 
-        <div
-          className="text-white space-y-4 prose prose-invert"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+        <article className="text-white space-y-4 prose prose-invert">
+          <MDX code={post.body.code} />
+        </article>
 
         <div className="w-full border-t border-neutral-500 py-4 text-neutral-500">
           Thanks for reading. If you enjoyed this post, check back at a later
