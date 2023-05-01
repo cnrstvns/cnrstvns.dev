@@ -1,16 +1,34 @@
 /* eslint-disable react/no-unknown-property */
-import { ImageResponse, NextRequest } from 'next/server';
+import { ImageResponse } from 'next/server';
 import { allPosts } from '@/../.contentlayer/generated';
 import kv from '@vercel/kv';
 import dayjs from 'dayjs';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export async function GET(req: NextRequest) {
-  const page = req.nextUrl.pathname.replace('/og-image', '');
-  const slug = page.replace('/posts/', '');
+export const config = {
+  runtime: 'edge',
+};
+
+function isString(str: unknown): str is string {
+  return typeof str === 'string';
+}
+
+export default async function generateOGImage(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  if (!req.url) return res.status(404).end();
+
+  const slug = new URL(req.url).searchParams.get('slug');
+
+  if (!isString(slug)) {
+    return res.status(404).end();
+  }
 
   const post = allPosts.find((p) => p.path === slug);
+
   const viewCount = await kv
-    .get(page)
+    .get(slug)
     .then((response) => parseInt(response as string, 10));
 
   if (!post) return new Response('Not found', { status: 404 });
