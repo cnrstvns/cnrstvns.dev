@@ -34,12 +34,15 @@ export function generateMetadata({
     description,
     openGraph: {
       title: `${title} - Connor Stevens`,
+      description,
       type: 'article',
       url: `https://cnrstvns.dev/posts/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
       title,
+      description,
+      creator: '@cnrstvns',
     },
   };
 }
