@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, PropsWithChildren } from 'react';
+import React, { type MouseEventHandler, type PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 
