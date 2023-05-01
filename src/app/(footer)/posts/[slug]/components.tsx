@@ -10,8 +10,7 @@ const linkClassName =
   'text-blue-400 hover:text-blue-500 transition no-underline';
 
 export const mdxComponents: MDXComponents = {
-  a: ({ href, children, ref, ...props }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+  a: function Anchor({ href, children, ref, ...props }) {
     const pathname = usePathname();
 
     if (href?.startsWith('/')) {
