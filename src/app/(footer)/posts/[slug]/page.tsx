@@ -38,12 +38,14 @@ export function generateMetadata({
       description,
       type: 'article',
       url: `https://cnrstvns.dev/posts/${slug}`,
+      images: [`https://cnrstvns.dev/posts/${slug}/og-image`],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
       creator: '@cnrstvns',
+      images: [`https://cnrstvns.dev/posts/${slug}/og-image`],
     },
   };
 }
