@@ -73,6 +73,13 @@ export function Navbar() {
           >
             Photos
           </Link>
+          <Link
+            onClick={handleClick}
+            href="/posts"
+            active={pathname.includes('/posts')}
+          >
+            Posts
+          </Link>
         </div>
       </div>
     </nav>

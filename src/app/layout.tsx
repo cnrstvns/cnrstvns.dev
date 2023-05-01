@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { type PropsWithChildren } from 'react';
 import { type Metadata } from 'next';
 import { Navbar } from '@/components/shared/Navbar';
 import { Analytics } from '@vercel/analytics/react';
