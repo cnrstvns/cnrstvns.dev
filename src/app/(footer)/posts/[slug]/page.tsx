@@ -73,7 +73,7 @@ export default function Post({ params: { slug } }: Params) {
           </time>
         </div>
 
-        <article className="text-white space-y-4 prose prose-invert">
+        <article className="text-white space-y-4 w-full md:w-[unset] prose prose-invert">
           <MDX code={post.body.code} />
         </article>
 
