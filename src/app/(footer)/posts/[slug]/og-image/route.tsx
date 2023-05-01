@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
     .get(page)
     .then((response) => parseInt(response as string, 10));
 
-  if (!post) return new Response(null, { status: 404 });
+  if (!post) return new Response('Not found', { status: 404 });
 
   return new ImageResponse(
     (
