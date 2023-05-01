@@ -59,8 +59,7 @@ export default function Photos() {
         </div>
 
         <div className="mt-16 text-center w-full text-neutral-300">
-          Shot on iPhone
-          <FontAwesomeIcon icon={faApple} />
+          Shot on iPhone <FontAwesomeIcon icon={faApple} />
         </div>
       </div>
     </div>

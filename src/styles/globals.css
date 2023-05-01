@@ -12,4 +12,62 @@
       clip-path: inset(0.6px);
     }
   }
+
+  div[data-rehype-pretty-code-fragment] code {
+    display: grid;
+  }
+
+  div[data-rehype-pretty-code-fragment] {
+    overflow: hidden;
+    @apply bg-neutral-800 rounded-sm leading-6 py-0;
+  }
+
+  div[data-rehype-pretty-code-fragment] pre {
+    overflow-x: scroll;
+    @apply bg-neutral-800 px-5 py-0 text-sm leading-7;
+  }
+
+  div[data-rehype-pretty-code-title] {
+    @apply bg-neutral-700 px-4 py-2 text-sm text-neutral-300 font-medium;
+  }
+
+  code {
+    @apply bg-neutral-700 rounded-sm py-0.5 px-1.5;
+  }
+
+  code::before,
+  code::after {
+    content: '' !important;
+  }
+
+  li::marker {
+    @apply text-neutral-500 !important;
+  }
+
+  .prose .anchor {
+    @apply absolute invisible no-underline;
+
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 700px;
+    cursor: pointer;
+  }
+
+  .anchor:hover {
+    @apply visible;
+  }
+
+  .prose a {
+    @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  }
+
+  .prose .anchor:after {
+    @apply text-neutral-300 dark:text-neutral-700;
+    content: '#';
+  }
+
+  .prose *:hover > .anchor {
+    @apply visible;
+  }
 }
