@@ -60,7 +60,9 @@ export default async function generateOGImage(
             {post.title}
           </div>
           <div tw="flex text-4xl text-neutral-300 mb-4">{post.description}</div>
-          <div tw="flex text-4xl text-neutral-400 mb-4">{viewCount} views</div>
+          <div tw="flex text-4xl text-neutral-400 mb-4">
+            {viewCount} {`view${viewCount !== 1 ? 's' : ''}`}
+          </div>
           <div tw="flex text-3xl text-neutral-200 mb-4">
             {dayjs(post.createdAt).format('MMMM D, YYYY')}
             {' • '}
