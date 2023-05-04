@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import kv from '@vercel/kv';
 import type { NextApiRequest } from 'next';
+import { allPosts } from 'contentlayer/generated';
 
 export const config = {
   runtime: 'edge',
@@ -25,6 +26,13 @@ export default async function pageView(req: NextApiRequest) {
       error: 'Invalid page parameter',
       type: 'invalid_parameter',
     });
+
+  if (!allPosts.find((p) => p.path === page))
+    if (!page)
+      return NextResponse.json({
+        error: 'Invalid page parameter',
+        type: 'invalid_parameter',
+      });
 
   kv.incr(page);
 
