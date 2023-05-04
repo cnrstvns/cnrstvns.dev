@@ -28,11 +28,10 @@ export default async function pageView(req: NextApiRequest) {
     });
 
   if (!allPosts.find((p) => p.path === page))
-    if (!page)
-      return NextResponse.json({
-        error: 'Invalid page parameter',
-        type: 'invalid_parameter',
-      });
+    return NextResponse.json({
+      error: 'Invalid page parameter',
+      type: 'invalid_parameter',
+    });
 
   kv.incr(page);
 
