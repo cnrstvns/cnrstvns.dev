@@ -23,7 +23,7 @@ function PostCard({ post }: { post: Post }) {
 
 export default function Posts() {
   const posts = allPosts.sort((a, b) => {
-    return new Date(a.date) > new Date(b.date) ? 1 : -1;
+    return new Date(a.date) > new Date(b.date) ? -1 : 1;
   });
 
   return (
