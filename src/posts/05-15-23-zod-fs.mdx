@@ -1,0 +1,380 @@
+---
+title: Introducing zod-fs
+date: 2023-05-15:00:00:00
+description: My first open-source Typescript library.
+---
+
+Earlier this year, I was developing a desktop application. It required that I
+store user data in JSON files on the user's machine to store application state.
+The first attempt I made at this years ago used
+[jsonfile](https://www.npmjs.com/package/jsonfile) which is just a wrapper
+around `fs.readFile` and `fs.writeFile`, wrapped in `JSON.parse` and
+`JSON.stringify` respectively. Now that I work primarily in Typescript, this
+wasn't going to work for me.
+
+If you want to skip ahead and just read the docs, head
+[here](https://www.npmjs.com/package/zod-fs).
+
+### The old way
+
+```js
+const PROXIES = `${DATA_PATH}proxies.json`;
+const checkPath = Helpers.data(PROXIES, '{"Default": []}');
+
+module.exports.getProxies = async function getProxies() {
+  await checkPath();
+  return jsonfile.readFile(PROXIES);
+};
+```
+
+As you can see for CRUD operations, I would check that the path exists, and then
+return the result of a call to jsonfile. This was exhausting to maintain. Let's
+discuss some of the issues this method had.
+
+### Issues
+
+- Lack of type-safety: Because I wrote this in JavaScript and everything is a
+  proxied call to `JSON.parse` or `JSON.stringify`, the best we can get in terms
+  of type-safety would be type-casting.
+- Lack of support for additional operating systems: I only considered support
+  for macOS and Windows at the time.
+- Lack of support for true CRUD capability: Because `jsonfile` only supports
+  read and write, we need to write our own update and reset methods for each
+  model.
+- Lack of maintainability: Each CRUD function needs to call a function to ensure
+  that the file exists when being read or written to.
+
+### Solutions:
+
+- We will use [zod](https://npmjs.org/package/zod) to create type-safe schemas
+  for our data models.
+- We will explicitly support multiple operating systems and allow for additional
+  ones with as little overhead as possible.
+- We will create generic helper functions to create the necessary helpers to
+  create CRUD functions for each data model.
+- We will build in automatic parsing, validation, and default data replacement
+  to our helper functions
+
+### What operations do we need?
+
+- Read: Retrieve data from a file
+- Write: Write new data to a file
+- Update: Write and merge new data into existing data into a file
+
+Remember that all these operations should be type-safe, guarantee that they
+return data that matches our schema, and guarantee that the file exists with our
+default data.
+
+In order to achieve this, we need to write a series of helper functions to
+simplify our interactions with each file.
+
+### Writing our helper functions:
+
+#### getAppPath
+
+We need to return the path to the consumer's app data folder given the name of
+our application. We include safe known paths for macOS and Windows, and default
+to the HOME directory provided by Node.js otherwise. This solves our previous
+problem of not supporting numerous operating systems.
+
+```ts
+const getAppPath = (appId: string) => {
+  const appName =
+    process.env.NODE_ENV === 'production' ? appId : `${appId} (development)`;
+
+  if (process.platform === 'win32') {
+    return `${process.env.APPDATA}/${appName}/`;
+  }
+
+  if (process.platform === 'darwin') {
+    return `${process.env.HOME}/Library/Application Support/${appName}/`;
+  }
+
+  return `${process.env.HOME}/${appName}/`;
+};
+```
+
+#### getFilePath
+
+We need to return the path to a file given the name of our application and the
+name of the file.
+
+```ts
+const getFilePath = (appName: string, fileName: string) => {
+  return `${getAppPath(appName)}${fileName}`;
+};
+```
+
+#### ensurePath
+
+We need to make sure that the path to the file we want to read or write to
+exists.
+
+```ts
+const ensurePath = async (appName: string, filePath: string) => {
+  const exists = await fs.pathExists(filePath);
+  if (exists) return;
+
+  await fs.ensureDir(getAppPath(appName));
+};
+```
+
+#### ensureFile
+
+We need to make sure that a file exists given the name of our application, the
+path to a file, the default data that belongs in that file, and optionally
+settings for `JSON.stringify`.
+
+```ts
+const ensureFile = async (
+  appName: string,
+  filePath: string,
+  fileData: unknown,
+  jsonOptions?: JSONOptions,
+) => {
+  await ensurePath(appName, filePath);
+
+  await fs.writeFile(
+    filePath,
+    JSON.stringify(
+      fileData,
+      jsonOptions?.replacer ?? null,
+      jsonOptions?.space ?? 2,
+    ),
+  );
+};
+```
+
+#### writeFile
+
+We need to write data to a file given the path to the file, data to write to
+that file, and optionally settings for `JSON.stringify`.
+
+```ts
+const writeFile = async (
+  filePath: string,
+  fileData: unknown,
+  jsonOptions?: JSONOptions,
+) => {
+  await fs.writeFile(
+    filePath,
+    JSON.stringify(
+      fileData,
+      jsonOptions?.replacer ?? null,
+      jsonOptions?.space ?? 2,
+    ),
+  );
+};
+```
+
+#### readFile
+
+This method is where things start to get interesting. `readFile` is a generic
+method that accepts a Zod schema as one of its parameters. Given this parameter,
+we can require that the consumer pass a default object that matches the shape of
+the Zod schema using the `z.infer` generic type.
+
+This method first uses `fs-extra` to read data from the file. Inside of a
+try-catch block, we use `JSON.parse` to turn the text we just read using
+`fs-extra` into an object that Javascript can understand. We then use the Zod
+schema's `parse` method to make sure that the data conforms to that model's
+schema. If not, it will throw an error. If an error is thrown, we make a call to
+our `restoreDefaults` method. In the success case, the data from the file is
+returned. Otherwise, the default data that was provided is returned and written
+to the file.
+
+```ts
+const readFile = async <T extends ZodType<any, any>>(
+  filePath: string,
+  schema: T,
+  defaultData: z.infer<T>,
+) => {
+  const fileData = await fs.promises.readFile(filePath, { encoding: 'utf-8' });
+
+  try {
+    const jsonData = JSON.parse(fileData);
+
+    schema.parse(jsonData);
+
+    return jsonData as z.infer<T>;
+  } catch (err) {
+    await restoreDefaults<T>(filePath, defaultData);
+
+    return defaultData;
+  }
+};
+```
+
+#### restoreDefaults
+
+This method uses `fs-extra` and `JSON.stringify` to write the default JSON data
+to a file in the case that there was an error parsing or the file does not yet
+exist.
+
+```ts
+const restoreDefaults = async function restoreDefaults<T>(
+  filePath: string,
+  data: T,
+) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+
+  return data;
+};
+```
+
+Now that we've written all of our helper methods, it's time to combine them into
+a cohesive API that solves the problems we set out to alleviate.
+
+### The FileHelper class:
+
+Let's define the shape of our core library helper, then we'll write
+implementations for each method.
+
+```ts
+class FileHelper<T extends ZodType<any, any>> {
+  appName: string;
+  fileName: string;
+  schema: T;
+  defaultValues: z.infer<T>;
+  json?: JSONOptions;
+
+  constructor(
+    appName: string,
+    fileName: string,
+    schema: T,
+    defaultValues: z.infer<T>,
+    json?: JSONOptions,
+  ) {
+    this.appName = appName;
+    this.fileName = fileName;
+    this.schema = schema;
+    this.defaultValues = defaultValues;
+
+    if (this.json) this.json = json;
+  }
+
+  async read(): Promise<z.infer<T>>;
+
+  async write(data: z.infer<T>): Promise<void>;
+
+  async update(data: Partial<z.infer<T>>): Promise<void>;
+}
+```
+
+When creating an instance of our library, we accept a few options. The name of
+our app as a string, the name of the file as as string, the Zod schema that
+applies to the file, the default values for that file, and optionally settings
+for `JSON.stringify`.
+
+We return three methods in an instance of our library: read, write, and update.
+Read returns a promise that resolves with the data from the file. Write returns
+a promise that resolves with a void value. The same is true for update.
+
+Let's implement each method.
+
+#### read
+
+First, we get the path to the file using our `getFilePath` method written
+earlier. Then, we ensure that this file exists and write our default data to it
+if not. Finally, we return the value of that file guaranteeing that it conforms
+to the schema for that file.
+
+```ts
+async read() {
+  const filePath = getFilePath(this.appName, this.fileName);
+
+  await ensureFile(this.appName, filePath, this.defaultValues, this.json);
+
+  return readFile(filePath, this.schema, this.defaultValues);
+}
+```
+
+### write
+
+First, we use the `parse` method on the Zod schema to ensure that the data
+passed is valid for that schema. Next, we compute the path to the file given the
+name of the application and the name of the file. Then, we ensure that this file
+exists and write our default data to it if not. Finally, we write the data to
+the file.
+
+```ts
+async write(data: z.infer<T>) {
+  this.schema.parse(data);
+
+  const filePath = getFilePath(this.appName, this.fileName);
+
+  await ensureFile(this.appName, filePath, this.defaultValues, this.json);
+
+  await writeFile(filePath, data, this.json);
+}
+```
+
+### update
+
+Update requires a few extra steps because we only require the consumer pass a
+partial update to a file. We then deeply merge these changes into the existing
+object.
+
+First, we compute the path to the file given the name of the application and the
+name of the file. Then, we ensure that this file exists and write our default
+data to it if not. Next, we read the data from that file. We then deeply merge
+the new values into the existing values. After we create the new object to be
+stored, we call the Zod schema's `parse` method to ensure that the data still
+matches the schema's shape. Finally, we write this data to the file.
+
+```ts
+async update(data: Partial<z.infer<T>>) {
+  const filePath = getFilePath(this.appName, this.fileName);
+
+  await ensureFile(this.appName, filePath, this.defaultValues, this.json);
+
+  const fileData = await readFile(filePath, this.schema, this.defaultValues);
+
+  const updatedData = deepMerge(fileData, data);
+
+  this.schema.parse(updatedData);
+
+  await writeFile(filePath, updatedData, this.json);
+  }
+```
+
+Now that we've implemented all the methods in our helper class, we can write the
+core method to create a zod-fs helper. The only argument this method will accept
+is the name of our application as a string.
+
+```ts
+export type JSONOptions = {
+  replacer?: (string | number)[] | null | undefined;
+  space?: string | number | undefined;
+};
+
+export type CreateFileHelperOptions<T extends ZodType<any, any>> = {
+  fileName: string;
+  schema: T;
+  defaultValues: z.infer<T>;
+  json?: JSONOptions;
+};
+
+export const createZodFs = (appName: string) => {
+  return {
+    createFileHelper: <T extends ZodType<any, any>>({
+      fileName,
+      schema,
+      defaultValues,
+      json,
+    }: CreateFileHelperOptions<T>) => {
+      return new FileHelper(appName, fileName, schema, defaultValues, json);
+    },
+  };
+};
+```
+
+And voila, we've implemented everything we need to use our new library. I hope
+you enjoyed this article. I had a ton of fun working on my first fully featured
+open-source Typescript library.
+
+Check out the package on [npm](https://npmjs.com/package/zod-fs) or
+[GitHub](https://github.com/cnrstvns/zod-fs)
+
+Shoutout to [alistair](https://alistair.sh) for helping out with CJS/ESM
+interoperability. Shoutout to [Zod](https://npmjs.org/package/zod) for existing.
