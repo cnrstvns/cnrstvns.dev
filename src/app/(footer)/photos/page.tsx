@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import Link from 'next/link';
-import dayjs from 'dayjs';
 
 type Collection = {
   title: string;
