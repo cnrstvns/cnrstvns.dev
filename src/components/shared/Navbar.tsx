@@ -79,7 +79,7 @@ export function Navbar() {
           <Link
             onClick={handleClick}
             href="/photos"
-            active={pathname === '/photos'}
+            active={pathname?.includes('/photos')}
           >
             Photos
           </Link>
