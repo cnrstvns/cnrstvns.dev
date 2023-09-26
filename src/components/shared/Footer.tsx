@@ -26,7 +26,7 @@ export function Footer() {
               <Link href="https://eqpt-site.vercel.app" external>
                 EQPT Tools
               </Link>
-              <Link href="https://soletech.io" external>
+              <Link href="https://sole-tech-site.vercel.app" external>
                 Sole Tech
               </Link>
             </ul>
