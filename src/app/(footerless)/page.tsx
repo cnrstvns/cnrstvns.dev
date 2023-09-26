@@ -16,10 +16,8 @@ export default function Index() {
         <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white">
           Connor Stevens
         </div>
-        <div className="text-neutral-400 mt-1">Student, Software Engineer</div>
-        <div className="text-neutral-100 max-w-xl mt-4">
-          Third year Computing and Information Technologies student at RIT with
-          a passion for building software.
+        <div className="text-neutral-300 max-w-xl mt-4">
+          Third year Computing and Information Technologies student at RIT.
         </div>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
           <Link size="sm" href="https://github.com/cnrstvns" external>
