@@ -47,6 +47,10 @@ export function generateMetadata({
       creator: '@cnrstvns',
       images: [`https://cnrstvns.dev/api/og-image?slug=${slug}`],
     },
+    metadataBase:
+      process.env.NODE_ENV === 'production'
+        ? new URL('https://cnrstvns.dev')
+        : new URL('http://localhost:3000'),
   };
 }
 
