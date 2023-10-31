@@ -4,8 +4,7 @@ import { allPosts } from 'contentlayer/generated';
 const baseUrl = 'https://cnrstvns.dev';
 
 function generateSiteMap(posts: Post[]) {
-  return `
-    <?xml version="1.0" encoding="UTF-8"?>
+  return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${baseUrl}</loc>
