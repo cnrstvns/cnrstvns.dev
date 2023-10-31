@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 import { allPosts } from '@/../.contentlayer/generated';
 import kv from '@vercel/kv';
 import dayjs from 'dayjs';
