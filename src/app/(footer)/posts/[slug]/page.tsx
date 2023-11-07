@@ -7,7 +7,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dayjs from 'dayjs';
 import { MDX } from './mdx';
-import { PageView } from './page-view';
 
 type Params = {
   params: { slug: string };
@@ -86,8 +85,6 @@ export default function Post({ params: { slug } }: Params) {
 
         <article className="text-white space-y-4 w-full md:w-[unset] prose prose-invert">
           <MDX code={post.body.code} />
-
-          <PageView />
         </article>
 
         <div className="w-full border-t border-neutral-500 py-4 text-neutral-500">
