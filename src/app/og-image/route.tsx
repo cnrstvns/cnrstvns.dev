@@ -2,7 +2,6 @@
 import { ImageResponse } from 'next/og';
 import { allPosts } from '@/../.contentlayer/generated';
 import dayjs from 'dayjs';
-import type { NextApiRequest, NextApiResponse } from 'next';
 
 export const runtime = 'edge';
 
@@ -18,18 +17,18 @@ const openSansMedium = fetch(
   new URL('../../styles/fonts/OpenSans-SemiBold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: Request) {
   const [openSansRegularData, openSansMediumData] = await Promise.all([
     openSansRegular,
     openSansMedium,
   ]);
 
-  if (!req.url) return res.status(404).end();
+  if (!req.url) return new Response('Not found', { status: 404 });
 
   const slug = new URL(req.url).searchParams.get('slug');
 
   if (!isString(slug)) {
-    return res.status(404).end();
+    return new Response('Not found', { status: 404 });
   }
 
   const post = allPosts.find((p) => p.path === slug);
