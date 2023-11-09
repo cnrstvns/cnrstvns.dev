@@ -18,10 +18,7 @@ const openSansMedium = fetch(
   new URL('../../styles/fonts/OpenSans-SemiBold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-export default async function generateOGImage(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
   const [openSansRegularData, openSansMediumData] = await Promise.all([
     openSansRegular,
     openSansMedium,
