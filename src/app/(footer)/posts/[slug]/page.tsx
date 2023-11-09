@@ -1,5 +1,6 @@
 /* eslint-disable consistent-return,react/no-danger,@typescript-eslint/no-non-null-assertion */
-import Link from 'next/link';
+import { Link } from '@/components/shared/Link';
+import NextLink from 'next/link';
 import { allPosts } from 'contentlayer/generated';
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -64,13 +65,13 @@ export default function Post({ params: { slug } }: Params) {
     <div className="flex flex-col max-w-4xl mx-auto pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
       <div className="flex flex-col items-start space-y-5">
         <div>
-          <Link
+          <NextLink
             href="/posts"
             className="text-center text-neutral-400 hover:text-neutral-300 transition text-sm font-medium uppercase"
           >
             <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
             go back
-          </Link>
+          </NextLink>
         </div>
 
         <div className="space-y-1">
@@ -89,7 +90,11 @@ export default function Post({ params: { slug } }: Params) {
 
         <div className="w-full border-t border-neutral-500 py-4 text-neutral-500">
           Thanks for reading. If you enjoyed this post, check back at a later
-          date for more new content.
+          date for more new content. If you&apos;re interested in how I built
+          this blog, check out the post about it{' '}
+          <Link href="/posts/05-01-23-hello-world" color>
+            here.
+          </Link>
         </div>
       </div>
     </div>

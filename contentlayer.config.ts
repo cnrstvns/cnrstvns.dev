@@ -30,6 +30,12 @@ export const Post = defineDocumentType(() => ({
       description: 'The description of the post',
       required: true,
     },
+    published: {
+      type: 'boolean',
+      description: 'Whether the post is published',
+      required: false,
+      default: true,
+    },
   },
   computedFields: {
     url: {

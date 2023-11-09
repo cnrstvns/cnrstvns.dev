@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { ImageResponse } from 'next/og';
 import { allPosts } from '@/../.contentlayer/generated';
-import kv from '@vercel/kv';
 import dayjs from 'dayjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -40,10 +39,6 @@ export default async function generateOGImage(
 
   const post = allPosts.find((p) => p.path === slug);
 
-  const viewCount =
-    (await kv.get(slug).then((response) => parseInt(response as string, 10))) ??
-    0;
-
   if (!post) return new Response('Not found', { status: 404 });
 
   return new ImageResponse(
@@ -60,9 +55,6 @@ export default async function generateOGImage(
             {post.title}
           </div>
           <div tw="flex text-4xl text-neutral-300 mb-4">{post.description}</div>
-          <div tw="flex text-4xl text-neutral-400 mb-4">
-            {viewCount} {`view${viewCount !== 1 ? 's' : ''}`}
-          </div>
           <div tw="flex text-3xl text-neutral-200 mb-4">
             {dayjs(post.createdAt).format('MMMM D, YYYY')}
             {' • '}

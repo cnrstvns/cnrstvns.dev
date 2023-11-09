@@ -22,9 +22,11 @@ function PostCard({ post }: { post: Post }) {
 }
 
 export default function Posts() {
-  const posts = allPosts.sort((a, b) => {
-    return new Date(a.date) > new Date(b.date) ? -1 : 1;
-  });
+  const posts = allPosts
+    .filter((post) => post.published)
+    .sort((a, b) => {
+      return new Date(a.date) > new Date(b.date) ? -1 : 1;
+    });
 
   return (
     <div className="flex flex-col pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
