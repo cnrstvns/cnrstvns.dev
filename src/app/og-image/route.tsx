@@ -4,9 +4,7 @@ import { allPosts } from '@/../.contentlayer/generated';
 import dayjs from 'dayjs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export const config = {
-  runtime: 'edge',
-};
+export const runtime = 'edge';
 
 function isString(str: unknown): str is string {
   return typeof str === 'string';
