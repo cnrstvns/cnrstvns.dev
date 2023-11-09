@@ -63,15 +63,24 @@ export default function About() {
               </div>
               <div className="text-base">
                 <span className="font-semibold">Relevant Coursework:</span>
-                <span className="text-neutral-300">
-                  {' '}
-                  Computational Problem Solving in the Information Domain I/II,
-                  Introduction to Routing and Switching, Introduction to
-                  Database and Data Modeling, Task Automation Using Interpretive
-                  Languages, Information Assurance and Security, Systems
-                  Administration I/II, Designing the User Experience, Project
-                  Management, Web and Mobile I/II
-                </span>
+                <ul className="text-neutral-300">
+                  <li>- Computer Systems Concepts</li>
+                  <li>- Information Assurance and Security</li>
+                  <li>
+                    - Computational Problem Solving in the Information Domain
+                    I/II
+                  </li>
+                  <li>- Web and Mobile Computing I/II</li>
+                  <li>- Introduction to Routing and Switching</li>
+                  <li>- Introduction to Database and Data Modeling</li>
+                  <li>- Task Automation Using Interpeted Languages</li>
+                  <li>- Systems Administration I/II</li>
+                  <li>- Designing the User Experience</li>
+                  <li>- Project Management</li>
+                  <li>- Information Requirements Modeling</li>
+                  <li>- Configuration Management</li>
+                  <li>- Database Connectivity and Access</li>
+                </ul>
               </div>
               <div className="text-base">
                 <span className="font-semibold">Note:</span>
