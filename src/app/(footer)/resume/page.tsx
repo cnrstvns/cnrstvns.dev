@@ -99,7 +99,7 @@ export default function About() {
           <div className="text-base">- Software Engineering</div>
           <div className="text-base">- Entrepreneurship</div>
           <div className="text-base">- Fishing</div>
-          <div className="text-base">- Hiking</div>
+          <div className="text-base">- Aviation</div>
         </div>
       </div>
     </div>

@@ -10,12 +10,11 @@ export const experiences: Experience[] = [
     title: 'Lead Engineer',
     location: 'Hyper — Palo Alto, CA',
     timespan: 'May 2021 - Jul. 2022',
-    description: `Hyper is a platform that helps turn Discord servers into multi-million
-    dollar businesses. As Hyper's first employee, I was responsible
-    for designing features, managing customer support, overseeing
-    marketing operations, and managing most engineering tasks.
-    During my time at Hyper, our customer count more than tripled
-    and our monthly payments volume grew by over 5 times.`,
+    description: `Hyper was a platform that helped turn Discord servers into multi-million 
+    dollar businesses. As Hyper's first employee, I was responsible for designing features, 
+    managing customer support, overseeing marketing & sales operations, and managing most 
+    engineering tasks. During my time at Hyper, our customer count more than tripled and our 
+    monthly gross transaction volume grew by over 5x. Hyper was acquired in 2023.`,
   },
   {
     title: 'Founder',
