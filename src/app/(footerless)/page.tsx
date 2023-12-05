@@ -3,7 +3,7 @@ import { Link } from '@/components/shared/Link';
 
 export default function Index() {
   return (
-    <div className="flex max-w-lg mx-auto items-center flex-col py-10">
+    <div className="flex max-w-lg mx-auto items-center flex-col py-10 px-6 md:px-0">
       <div className="flex flex-col justify-start">
         <div className="text-2xl font-serif">Connor Stevens</div>
         <div className="mt-4">

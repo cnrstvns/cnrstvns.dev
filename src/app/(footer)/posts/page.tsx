@@ -29,7 +29,7 @@ export default function Posts() {
     });
 
   return (
-    <div className="flex flex-col py-10 max-w-lg mx-auto">
+    <div className="flex flex-col py-10 max-w-lg mx-auto px-6 md:px-0">
       <div className="space-y-5">
         <div className="text-2xl font-semibold">Posts</div>
         {posts.map((p) => (

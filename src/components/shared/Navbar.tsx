@@ -12,7 +12,7 @@ export function Navbar() {
       <div className="flex items-center text-white mr-6">
         <Link href="/hype">🛩️</Link>
       </div>
-      <div className="flex flex-row text-white mt-4 lg:mt-0 space-x-3">
+      <div className="flex flex-row text-white mt-4 lg:mt-0 space-x-2 md:space-x-3">
         <Link size="sm" href="/" active={pathname === '/'}>
           Home
         </Link>
