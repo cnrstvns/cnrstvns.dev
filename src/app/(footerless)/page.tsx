@@ -21,6 +21,9 @@ export default function Index() {
           to get in touch with me, my contact details are below.
         </p>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
+          <Link size="sm" href="https://x.com/cnrstvns" external>
+            x
+          </Link>
           <Link size="sm" href="https://github.com/cnrstvns" external>
             github
           </Link>
