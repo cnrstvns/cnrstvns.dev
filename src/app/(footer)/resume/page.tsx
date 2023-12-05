@@ -5,8 +5,8 @@ import { SectionTitle } from '@/components/resume/SectionTitle';
 
 export default function About() {
   return (
-    <div className="flex flex-col pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
-      <div className="max-w-4xl mx-auto space-y-5">
+    <div className="flex flex-col py-10 min-h-screen px-6 md:px-0 text-black">
+      <div className="max-w-lg mx-auto space-y-8">
         <div>
           <SectionTitle title="Skills" />
           <div className="text-base mb-2">
@@ -46,24 +46,24 @@ export default function About() {
 
           <div className="space-y-5">
             <div>
-              <div className="font-semibold text-xl text-blue-300">
+              <div className="font-semibold text-xl text-black">
                 B.S. Computing and Information Technologies
               </div>
               <div className="text-base">Rochester Institute of Technology</div>
-              <div className="text-base text-neutral-300">
+              <div className="text-base text-neutral-500">
                 Aug. 2019 - Dec. 2024 (expected)
               </div>
               <div className="text-base mt-2">
                 <span className="font-semibold">GPA:</span>
-                <span className="text-neutral-300"> 3.42</span>
+                <span className="text-neutral-600"> 3.42</span>
               </div>
               <div className="text-base">
                 <span className="font-semibold">Honors:</span>
-                <span className="text-neutral-300"> Dean&apos;s List</span>
+                <span className="text-neutral-600"> Dean&apos;s List</span>
               </div>
               <div className="text-base">
                 <span className="font-semibold">Relevant Coursework:</span>
-                <ul className="text-neutral-300">
+                <ul className="text-neutral-600">
                   <li>- Computer Systems Concepts</li>
                   <li>- Information Assurance and Security</li>
                   <li>
@@ -84,7 +84,7 @@ export default function About() {
               </div>
               <div className="text-base">
                 <span className="font-semibold">Note:</span>
-                <span className="text-neutral-300">
+                <span className="text-neutral-600">
                   {' '}
                   Completed an extended cooperative education experience from
                   June 2021 to July 2022.
@@ -92,11 +92,11 @@ export default function About() {
               </div>
             </div>
             <div>
-              <div className="font-semibold text-xl text-blue-300">
+              <div className="font-semibold text-xl text-black">
                 High School Diploma
               </div>
               <div className="text-base">Ridgewood High School</div>
-              <div className="text-base text-neutral-300">
+              <div className="text-base text-neutral-500">
                 Sep. 2015 - Jun. 2019
               </div>
             </div>

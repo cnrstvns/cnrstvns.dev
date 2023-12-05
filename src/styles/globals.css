@@ -34,6 +34,7 @@
 
   code {
     @apply bg-neutral-700 rounded-sm py-0.5 px-1.5;
+    @apply font-normal !important;
   }
 
   code::before,
@@ -70,5 +71,9 @@
 
   .prose *:hover > .anchor {
     @apply visible;
+  }
+
+  .prose figcaption {
+    @apply text-neutral-600;
   }
 }

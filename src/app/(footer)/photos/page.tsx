@@ -34,19 +34,17 @@ function CollectionCard({ collection }: { collection: Collection }) {
       className="mb-6 w-full flex flex-col space-y-2 pb-4 border-b border-neutral-500"
     >
       <div className="text-sm text-neutral-500">{collection.timestamp}</div>
-      <div className="text-blue-300 text-xl font-semibold">
-        {collection.title}
-      </div>
-      <div className="text-neutral-200">{collection.description}</div>
+      <div className="text-black text-xl font-semibold">{collection.title}</div>
+      <div className="text-neutral-500">{collection.description}</div>
     </Link>
   );
 }
 
 export default function Collections() {
   return (
-    <div className="flex flex-col pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
-      <div className="w-[36rem] mx-auto space-y-5">
-        <div className="text-3xl font-semibold">Collections</div>
+    <div className="flex flex-col py-10 px-6 md:px-0 max-w-lg mx-auto">
+      <div className="space-y-5">
+        <div className="text-2xl font-semibold">Collections</div>
         {collections.map((c) => (
           <CollectionCard key={c.slug} collection={c} />
         ))}
