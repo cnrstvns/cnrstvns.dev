@@ -33,7 +33,7 @@ export function Link({
           'text-sm': size === 'sm',
           'text-md': size === 'md',
           'text-lg': size === 'lg',
-          '!text-gray-300': active,
+          'underline underline-offset-2 text-black': active,
         },
       )}
     >

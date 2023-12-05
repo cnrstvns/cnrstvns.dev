@@ -29,11 +29,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      {/* Navigation */}
-      <Navbar />
-
       {/* Main content */}
-      <body className="bg-neutral-900">
+      <body>
+        {/* Navigation */}
+        <Navbar />
+
         {children}
         <Analytics />
       </body>

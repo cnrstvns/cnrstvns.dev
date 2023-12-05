@@ -15,8 +15,8 @@ function PostCard({ post }: { post: Post }) {
         {' • '}
         {post.readingTime}
       </time>
-      <div className="text-blue-300 text-xl font-semibold">{post.title}</div>
-      <div className="text-neutral-200">{post.description}</div>
+      <div className="text-black text-xl font-semibold">{post.title}</div>
+      <div className="text-neutral-500">{post.description}</div>
     </Link>
   );
 }
@@ -29,9 +29,9 @@ export default function Posts() {
     });
 
   return (
-    <div className="flex flex-col pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
-      <div className="w-[36rem] mx-auto space-y-5">
-        <div className="text-3xl font-semibold">Posts</div>
+    <div className="flex flex-col py-10 max-w-lg mx-auto px-6 md:px-0">
+      <div className="space-y-5">
+        <div className="text-2xl font-semibold">Posts</div>
         {posts.map((p) => (
           <PostCard key={p._id} post={p} />
         ))}

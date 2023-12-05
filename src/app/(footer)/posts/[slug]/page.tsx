@@ -62,16 +62,20 @@ export default function Post({ params: { slug } }: Params) {
   }
 
   return (
-    <div className="flex flex-col max-w-4xl mx-auto pt-32 pb-10 min-h-screen px-6 lg:px-32 text-white">
+    <div className="flex flex-col mx-auto py-10 min-h-screen justify-center w-full max-w-2xl px-6">
       <div className="flex flex-col items-start space-y-5">
         <div>
-          <NextLink
-            href="/posts"
-            className="text-center text-neutral-400 hover:text-neutral-300 transition text-sm font-medium uppercase"
-          >
-            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
-            go back
-          </NextLink>
+          <div className="flex items-center flex-row space-x-2">
+            <NextLink
+              href="/posts"
+              className="text-center text-black hover:text-neutral-300 transition text-sm font-medium lowercase"
+            >
+              <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
+              Posts
+            </NextLink>
+            <div>/</div>
+            <div className="lowercase">{post.path}</div>
+          </div>
         </div>
 
         <div className="space-y-1">
@@ -84,7 +88,7 @@ export default function Post({ params: { slug } }: Params) {
           </time>
         </div>
 
-        <article className="text-white space-y-4 w-full md:w-[unset] prose prose-invert">
+        <article className="text-black space-y-4 prose">
           <MDX code={post.body.code} />
         </article>
 

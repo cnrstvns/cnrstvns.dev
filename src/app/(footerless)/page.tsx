@@ -1,25 +1,29 @@
-import Image from 'next/image';
 import React from 'react';
 import { Link } from '@/components/shared/Link';
 
 export default function Index() {
   return (
-    <div className="flex flex-col p-10 lg:flex-row min-h-screen items-start md:items-center justify-center space-y-10 lg:space-y-0 lg:space-x-10">
-      <Image
-        className="rounded-md md:rounded"
-        src="/images/me.webp"
-        alt="me"
-        width={224}
-        height={224}
-      />
+    <div className="flex max-w-lg mx-auto items-center flex-col py-10 px-6 md:px-0">
       <div className="flex flex-col justify-start">
-        <div className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white">
-          Connor Stevens
+        <div className="text-2xl font-serif">Connor Stevens</div>
+        <div className="mt-4">
+          Hi. I&apos;m Connor, a fourth-year Computing and Information
+          Technologies student at Rochester Institute of Technology.
         </div>
-        <div className="text-neutral-300 max-w-xl mt-4">
-          Third year Computing and Information Technologies student at RIT.
-        </div>
+        <p className="mt-4">
+          For as long as I can remember, technology has been a passion of mine.
+          Growing up, I was always taking things apart to learn how they worked
+          and, most of the time, putting them back together.
+        </p>
+        <p className="mt-4">
+          In my free time, you might find me writing code, teaching my friends
+          how to write code, or spending time in X-Plane. If you&apos;re looking
+          to get in touch with me, my contact details are below.
+        </p>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
+          <Link size="sm" href="https://x.com/cnrstvns" external>
+            x
+          </Link>
           <Link size="sm" href="https://github.com/cnrstvns" external>
             github
           </Link>
