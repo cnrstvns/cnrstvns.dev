@@ -16,11 +16,18 @@ export default function Index() {
           and, most of the time, putting them back together.
         </p>
         <p className="mt-4">
+          I have years of experience building online communities and software
+          that helps do the same. Most recently, I was Lead Engineer at Hyper
+          (acq. 2023), a platform designed to sell exclusive access to Discord
+          servers. I built infrastructure that powered payments and
+          authentication for thousands of online communities and niche internet
+          businesses.
+        </p>
+        <p className="mt-4">
           In my free time, you might find me writing code, teaching my friends
           how to write code, or spending time in X-Plane. If you&apos;re looking
           to get in touch with me, my contact details are below.
         </p>
-        <p className="mt-4">bruh about the experience</p>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
           <Link size="sm" href="https://x.com/cnrstvns" external>
             x
@@ -34,7 +41,6 @@ export default function Index() {
           <Link size="sm" href="mailto:conmail1224@gmail.com" external>
             email
           </Link>
-          p
         </div>
       </div>
     </div>
