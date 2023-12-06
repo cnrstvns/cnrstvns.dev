@@ -37,6 +37,16 @@ export const experiences: Experience[] = [
     including but not limited to: routers, switches, access points and other network appliances.`,
   },
   {
+    title: 'Co-Founder',
+    company: 'Profit Prophets',
+    location: 'Ridgewood, NJ',
+    timespan: 'Aug 2019 - May 2021',
+    description: `Responsible for managing a subscription based online community on Discord. 
+    Focused on the administration and software development side of the business, writing custom software
+    to improve members' experiences, overseeing $15k in monthly revenue in Stripe, and communicating goals
+    with community moderators.`,
+  },
+  {
     title: 'Assistant IT Technician',
     company: 'Ridgewood High School',
     location: 'Ridgewood, NJ',

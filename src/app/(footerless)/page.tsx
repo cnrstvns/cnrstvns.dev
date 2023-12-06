@@ -20,6 +20,7 @@ export default function Index() {
           how to write code, or spending time in X-Plane. If you&apos;re looking
           to get in touch with me, my contact details are below.
         </p>
+        <p className="mt-4">bruh about the experience</p>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
           <Link size="sm" href="https://x.com/cnrstvns" external>
             x
@@ -33,6 +34,7 @@ export default function Index() {
           <Link size="sm" href="mailto:conmail1224@gmail.com" external>
             email
           </Link>
+          p
         </div>
       </div>
     </div>
