@@ -65,10 +65,10 @@ export default function Post({ params: { slug } }: Params) {
     <div className="flex flex-col mx-auto py-10 min-h-screen justify-center w-full max-w-2xl px-6">
       <div className="flex flex-col items-start space-y-5">
         <div>
-          <div className="flex items-center flex-row space-x-2">
+          <div className="flex font-medium items-center flex-row space-x-2">
             <NextLink
               href="/posts"
-              className="text-center text-black hover:text-neutral-300 transition text-sm font-medium lowercase"
+              className="text-center text-black hover:text-neutral-600 transition text-sm lowercase"
             >
               <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
               Posts
@@ -80,8 +80,8 @@ export default function Post({ params: { slug } }: Params) {
 
         <div className="space-y-1">
           <h1 className="text-3xl font-bold">{post.title}</h1>
-          <div className="text-neutral-400">{post.description}</div>
-          <time dateTime={post.date} className="text-sm text-neutral-500">
+          <div className="text-neutral-600">{post.description}</div>
+          <time dateTime={post.date} className="text-sm text-neutral-700">
             {dayjs(post.createdAt).format('MMMM D, YYYY')}
             {' • '}
             {post.readingTime}
