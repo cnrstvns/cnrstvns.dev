@@ -17,11 +17,10 @@ export default function Index() {
         </p>
         <p className="mt-4">
           I have years of experience building online communities and software
-          that helps do the same. Most recently, I was Lead Engineer at Hyper
-          (acq. 2023), a platform designed to sell exclusive access to Discord
-          servers. I built infrastructure that powered payments and
-          authentication for thousands of online communities and niche internet
-          businesses.
+          that helps do the same. Most recently, I was Lead Engineer at Hyper, a
+          platform designed to sell exclusive access to Discord servers. I built
+          infrastructure that powered payments and authentication for thousands
+          of online communities and niche internet businesses.
         </p>
         <p className="mt-4">
           In my free time, you might find me writing code, teaching my friends
