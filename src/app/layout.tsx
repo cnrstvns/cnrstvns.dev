@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     siteName: 'Connor Stevens',
     description: 'My personal website.',
     images: ['/images/me.webp'],
+    url: 'https://cnrstvns.dev',
   },
   metadataBase:
     process.env.NODE_ENV === 'production'
