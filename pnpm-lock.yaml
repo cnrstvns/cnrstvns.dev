@@ -14,6 +14,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.59.1
   '@vercel/analytics': ^1.0.0
   '@vercel/kv': ^0.1.1
+  '@vercel/speed-insights': ^1.0.0
   autoprefixer: ^10.4.14
   clsx: ^1.2.1
   contentlayer: ^0.3.2
@@ -51,6 +52,7 @@ dependencies:
   '@fortawesome/react-fontawesome': 0.2.0_z27bm67dtmuyyvss23ckjdrcuy
   '@vercel/analytics': 1.0.0_react@18.2.0
   '@vercel/kv': 0.1.1
+  '@vercel/speed-insights': 1.0.0
   clsx: 1.2.1
   contentlayer: 0.3.2
   dayjs: 1.11.7
@@ -1296,6 +1298,11 @@ packages:
       '@upstash/redis': 1.20.2
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@vercel/speed-insights/1.0.0:
+    resolution: {integrity: sha512-5blmCVGGPn+3BqwBPb1jc3OnzRozNuLgJVr7xH6XjxCTvocs7z/Bml7lo+JzLKUXR1Q35qI/PlEllmNbZmP9Ew==}
+    requiresBuild: true
     dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.1:
