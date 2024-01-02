@@ -33,7 +33,9 @@ function generateSiteMap(posts: Post[]) {
 
 export function GET() {
   const body = generateSiteMap(
-    allPosts.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1)),
+    allPosts
+      .filter((p) => p.published)
+      .sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1)),
   );
 
   return new Response(body, {
