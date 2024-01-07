@@ -62,7 +62,7 @@ export default function Post({ params: { slug } }: Params) {
   }
 
   return (
-    <div className="flex flex-col mx-auto py-10 min-h-screen justify-center w-full max-w-2xl px-6">
+    <div className="flex flex-col mx-auto py-10 min-h-screen w-full max-w-2xl px-6">
       <div className="flex flex-col items-start space-y-5">
         <div>
           <div className="flex font-medium items-center flex-row space-x-2">
