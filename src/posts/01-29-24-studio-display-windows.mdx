@@ -1,0 +1,165 @@
+---
+title: Studio Display on a Windows PC
+date: 2024-11-29:00:00:00
+description: Doing something that you should probably not do...
+---
+
+I have a dual monitor desk setup — one Apple Studio Display and one ASUS 144hz
+gaming monitor. For the past few months, I've just been turning my head to use
+my Windows 11 desktop for flight sim. Unfortunately this is not ideal for a few
+reasons:
+
+- My second monitor is smaller
+- My second monitor is 1080p
+- My second monitor is offset to the right, so I have to turn my head.
+
+So, I had a crazy idea. What if I could use my Apple Studio Display with my
+Windows PC? Then I would be able to switch back and forth between my MacBook and
+desktop seamlessly by switching out one cable to the Studio Display. Oh, if it
+were only that easy. This article should serve as a guide to anyone wishing to
+attempt the same thing.
+
+**Fair warning**: _Your mileage may vary._ I was about ready to return the cable
+to wherever it came from and admit defeat.
+
+Prerequisites:
+
+1. Belkin Charge and Sync Cable for HUAWEI VR Glass
+2. Apple Studio Display
+3. A strong will
+
+### Ordering the cable
+
+This is the easiest part of the whole process. Head to [eBay](https://ebay.com)
+and search for a "Belkin Charge and Sync Cable for HUAWEI VR Glass". Find one
+that is priced decently (under $130 as of the writing of this article). Order
+it. Wait 3+ weeks for it to come via some carrier you've never heard of before.
+
+### Plug it in and it works
+
+Yeah, I thought so too... not so easy. Where to begin? When I plugged the
+display in originally, it was "recognized" in Windows, but the display was
+flashing black on and off repeatedly. Not a good sign. So, I started
+troubleshooting. I knew you needed Boot Camp drivers to control the display, but
+maybe those would have some effect on getting an output?
+
+### Brigadier
+
+Brigadier is a nifty tool for installing Boot Camp drivers on non-hackintosh
+Windows computers. These drivers will allow you to control your display's
+brightness from Windows. You can download it from
+[here](https://github.com/timsutton/brigadier/releases/tag/0.2.6). Once you've
+got it downloaded, open up a terminal and `cd` into the directory where the .exe
+ended up. Follow these steps:
+
+1. Run `brigadier.exe --m MacPro7,1` — this will download the Boot Camp
+   installer and drivers from Apple
+2. cd into `$WINPEDriver$` and delete all but the following:
+
+- `Dolby`
+- `AppleAudio`
+- `AppleAudio_1883106B`
+- `ApleSSD64`
+- `AppleUSBVHCI`
+- `SerialIO`
+
+This will prevent Boot Camp from doing unnecessary work.
+
+3. cd into `BootCamp\Drivers` — delete everything except the `Apple` and
+   `Promise` directories
+
+4. Here comes the fun part... cd in to `BootCamp\Drivers\Apple\BootCamp.msi`. If
+   you can right click and run the msi as an administrator, go right ahead.
+   Unfortunately in Windows 11, this wasn't so easy.
+
+### Registry Hacking
+
+Editing the registry in Windows is always a bit nerve racking. This one is quite
+simple. I'll save myself the embarrassment of pretending to know exactly what
+this edit does to Windows — it adds a "Run as Administrator" option when
+right-clicking on .msi files. However, there is a deeper technical explanation.
+I'm a Windows guy, but I don't know the specific inner workings of the registry.
+If you're interested in that, here's GPT-4's attempt:
+
+<Figure
+  src="/posts/gpt-registry-explanation.png"
+  height={400}
+  width={400}
+  caption="GPT-4's attempt to explain the `MSI.Package` registry entry."
+/>
+
+You'll need to add a registry entry called `runasuser` under
+`HKEY_CLASSES_ROOT\Msi.Package\shell`. Right click on the `shell` folder, and
+click "New > Key". Enter `runas` when prompted. Under the `shell\runas folder`,
+double click in the right pane on "(Default)". Inside the value, type
+`Run as &administrator`. Right click on the `runas` folder. Again, select "New >
+Key". When prompted, enter `command` as the value. Double click on "(Default)"
+on the right side under `command`. In the popup, type `msiexec /i "%1"`.
+
+Below is a picture of how your directory structure should look when complete.
+
+<Figure
+  src="/posts/registry-config.png"
+  height={600}
+  width={600}
+  caption="The structure of the modified registry"
+/>
+
+Once done, you can go back to the `BootCamp.msi` file and right click, and
+select "Run as Administrator". Follow the installer's instructions, and then
+reboot.
+
+### Drivers and Firmware
+
+Unfortunately this was not the end of the road for me. At this point, I was
+concerned that my 1080Ti was incapable of driving the Studio Display due to
+DisplayPort compatibility issues. I was half right — my graphics card needed a
+firmware update. After searching around, I found
+(this)[https://www.nvidia.com/en-us/drivers/nv-uefi-update-x64/] firmware from
+Nvidia. I installed this, and restarted my computer. Still a flashing black
+screen...
+
+### Nvidia Control Panel
+
+After some thought, I realized that maybe I could tweak some settings in Nvidia
+Control Panel. This was the key:
+
+1. Enabling the Studio Display
+2. Lowering the resolution to 3840x2160
+
+For some odd reason, I had to click a tick box to enable output to the Studio
+Display. I've never seen this before in Windows or Nvidia Control Panel in 10
+years of owning Windows computers, but who knows. You may encounter the same
+thing.
+
+<Figure
+  src="/posts/nvidia-control-panel.png"
+  height={500}
+  width={500}
+  caption="Nvidia Control Panel display config"
+/>
+
+Next, I lowered the resolution for the display to 1920x1080. Voila! It worked! I
+was shocked. Next, I started stepping the resolution up one by one, seeing if I
+could get the display to exhibit the behavior it had before. It worked great,
+until I made it up to 5K, and ultimately had to settle for 4K. My hunch is that
+either the Belkin cable OR my 1080Ti just don't have the bandwidth, but I'm not
+100% sure. We'll find out when I eventually upgrade to the 40 series.
+
+### Recap
+
+I'm glad I got the display working in Windows — I've hated not having the same
+setup for my PC as I do for my MacBook. It actually works quite well — the
+speakers work, the camera and microphone work, the USB ports work. The only
+thing I am missing is the 5K resolution, but I'm not too upset. It was somewhat
+a pain in the ass, but totally worth it. That said, I definitely had some help.
+Below are resources that I used along my way:
+
+- https://www.partitionwizard.com/partitionmanager/run-as-administrator-option-for-msi-files-missing.html
+- https://nadim.computer/posts/2023-07-22-studiodisplay.html
+- https://web.archive.org/web/20230403070825/https://nielsleenheer.com/articles/2022/using-the-apple-studio-display-on-a-windows-machine/
+- https://andre.arko.net/2022/10/26/sharing-an-apple-pro-xdr-or-studio-display-between-a-mac-and-pc/
+
+Just another disclaimer: your mileage may vary... even in guides that I read
+using the exact same cable and display as me had different outcomes. I hope this
+guide provides some hope for others trying to do the same. Good luck.
