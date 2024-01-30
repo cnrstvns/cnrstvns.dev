@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
 const linkClassName =
-  'text-blue-500 hover:text-blue-500 transition no-underline';
+  'text-blue-500 hover:text-blue-500 transition no-underline break-all';
 
 export const mdxComponents: MDXComponents = {
   a: function Anchor({ href, children, ref, ...props }) {
