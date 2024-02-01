@@ -15,6 +15,7 @@
 
   div[data-rehype-pretty-code-fragment] code {
     display: grid;
+    @apply w-[calc(100vw-100px)] md:w-full;
   }
 
   div[data-rehype-pretty-code-fragment] {
