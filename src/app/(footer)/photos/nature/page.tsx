@@ -58,7 +58,7 @@ export default function Photos() {
           <Row images={['3080', '2148', '2806']} />
         </div>
 
-        <div className="mt-16 text-center w-full text-neutral-300">
+        <div className="mt-16 text-center w-full text-neutral-400">
           Shot on iPhone <FontAwesomeIcon icon={faApple} />
         </div>
       </div>

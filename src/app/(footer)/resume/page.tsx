@@ -51,11 +51,7 @@ export default function About() {
               </div>
               <div className="text-base">Rochester Institute of Technology</div>
               <div className="text-base text-neutral-500">
-                Aug. 2019 - Dec. 2024 (expected)
-              </div>
-              <div className="text-base mt-2">
-                <span className="font-semibold">GPA:</span>
-                <span className="text-neutral-600"> 3.42</span>
+                Aug. 2019 - Dec. 2024
               </div>
               <div className="text-base">
                 <span className="font-semibold">Honors:</span>
@@ -80,6 +76,7 @@ export default function About() {
                   <li>- Information Requirements Modeling</li>
                   <li>- Configuration Management</li>
                   <li>- Database Connectivity and Access</li>
+                  <li>- Database Application Development</li>
                 </ul>
               </div>
               <div className="text-base">

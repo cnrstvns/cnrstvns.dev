@@ -3,10 +3,16 @@ export type Experience = {
   company: string;
   location: string;
   timespan: string;
-  description: string;
+  description?: string;
 };
 
 export const experiences: Experience[] = [
+  {
+    title: 'Software Engineer',
+    company: 'Whop',
+    location: 'Brooklyn, NY',
+    timespan: 'December 2023 - Current',
+  },
   {
     title: 'Lead Engineer',
     company: 'Hyper',
