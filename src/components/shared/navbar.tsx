@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { Link } from './Link';
+import { Link } from './link';
 
 export function Navbar() {
   const pathname = usePathname();

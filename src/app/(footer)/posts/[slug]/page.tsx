@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return,react/no-danger,@typescript-eslint/no-non-null-assertion */
-import { Link } from '@/components/shared/Link';
+import { Link } from '@/components/shared/link';
 import NextLink from 'next/link';
 import { allPosts } from 'contentlayer/generated';
 import { type Metadata } from 'next';

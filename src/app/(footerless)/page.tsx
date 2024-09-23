@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@/components/shared/Link';
+import { Link } from '@/components/shared/link';
 
 export default function Index() {
   return (
