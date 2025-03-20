@@ -19,14 +19,8 @@ export default function Index() {
           </span>
         </div>
         <p className="mt-4">
-          For as long as I can remember, technology has been a passion of mine.
-          Since I was young, I&apos;ve always been taking things apart to learn
-          how they worked and, most of the time, putting them back together.
-        </p>
-        <p className="mt-4">
-          In my free time, you might find me fishing or writing code. If
-          you&apos;re looking to get in touch with me, my contact details are
-          below.
+          I like building cool things. Especially those that help people earn
+          money.
         </p>
         <div className="mt-4 space-x-2 lg:space-x-3 flex flex-wrap">
           <Link size="sm" href="https://whop.com/hub/connor" external>

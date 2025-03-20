@@ -12,27 +12,33 @@ export const experiences: Experience[] = [
     company: 'Whop',
     location: 'Brooklyn, NY',
     timespan: 'December 2023 - Current',
+    description:
+      'I work with extremely talented people to build product that helps people earn money on the internet.',
   },
   {
     title: 'Lead Engineer',
     company: 'Hyper',
     location: 'Palo Alto, CA',
     timespan: 'May 2021 - Jul. 2022',
-    description: `Hyper was a platform that helped turn Discord servers into multi-million 
-    dollar businesses. As Hyper's first employee, I was responsible for designing features, 
-    managing customer support, overseeing marketing & sales operations, and managing most 
-    engineering tasks. During my time at Hyper, our customer count more than tripled and our 
-    monthly gross transaction volume grew by over 5x. Hyper was acquired in 2023.`,
+    description: `Hyper was a platform that helped you turn a paid community into a business. 
+    As the first employee, I built product features, ran customer support, and closed new customers.
+    The company's processing volume grew 5x during my tenure. Hyper was acquired in 2023.`,
   },
   {
     title: 'Founder',
     company: 'Sole Tech LLC',
     location: 'Ridgewood, NJ',
     timespan: 'Apr. 2020 - Dec. 2022',
-    description: `Responsible for consulting with Discord-based communities in the
-    sneaker aftermarket space for their custom software needs.
-    Creating custom APIs and applications for customers in Node.JS
-    and Python. Managed 20+ subscriptions with Stripe.`,
+    description:
+      'I built custom software to help Discord community owners grow their communities and increase engagement.',
+  },
+  {
+    title: 'Co-Founder',
+    company: 'Profit Prophets',
+    location: 'Ridgewood, NJ',
+    timespan: 'Aug. 2019 - May 2021',
+    description: `My close friend and I built a Discord community to teach people how to buy and resell sneakers at scale.
+      I ran the backend of the business, writing custom software to improve members' experiences and oversaw $15k in monthly revenue.`,
   },
   {
     title: 'Sole Proprietor',
@@ -41,16 +47,6 @@ export const experiences: Experience[] = [
     timespan: 'Jan. 2019 - Jun. 2021',
     description: `Installation and configuration of enterprise-grade networking equipment,
     including but not limited to: routers, switches, access points and other network appliances.`,
-  },
-  {
-    title: 'Co-Founder',
-    company: 'Profit Prophets',
-    location: 'Ridgewood, NJ',
-    timespan: 'Aug. 2019 - May 2021',
-    description: `Responsible for managing a subscription based online community on Discord. 
-    Focused on the administration and software development side of the business, writing custom software
-    to improve members' experiences, overseeing $15k in monthly revenue in Stripe, and communicating goals
-    with community moderators.`,
   },
   {
     title: 'Assistant IT Technician',
