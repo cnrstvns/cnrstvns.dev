@@ -10,7 +10,7 @@ export const experiences: Experience[] = [
   {
     title: 'Software Engineer',
     company: 'Whop',
-    location: 'Brooklyn, NY',
+    location: 'Palo Alto, CA',
     timespan: 'December 2023 - Current',
     description:
       'I work with extremely talented people to build product that helps people earn money on the internet.',
